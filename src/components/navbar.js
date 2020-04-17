@@ -4,6 +4,7 @@ import Sidebar from "react-sidebar";
 import NavLinks from "./navlinks";
 import SocialLinks from "./sociallinks";
 import Logo from "./logo";
+import CookieBanner from "./cookie-banner";
 import { Hamburger } from "./icons";
 
 import "../style/navbar.less";
@@ -69,15 +70,19 @@ class Navbar extends React.Component {
 
         window.addEventListener("scroll", function() {
             if (this.scrollY > 0) {
-                document.querySelector("nav").classList.add("scrolled");
+                document
+                    .getElementById("nav-container")
+                    .classList.add("scrolled");
             } else {
-                document.querySelector("nav").classList.remove("scrolled");
+                document
+                    .getElementById("nav-container")
+                    .classList.remove("scrolled");
             }
         });
     }
 
     changeNavbarPlaceholderHeight() {
-        let navBar = document.querySelector("nav");
+        let navBar = document.getElementById("nav");
         let navbarPlaceholderHeight = navBar.offsetHeight;
         this.setState({
             navbarPlaceholderHeight: navbarPlaceholderHeight
@@ -109,16 +114,23 @@ class Navbar extends React.Component {
                 >
                     <span></span>
                 </Sidebar>
-                <nav className="text-secondary" ref={c => (this.nav = c)}>
-                    <a href="#mobilenav" id="menu-open" onClick={this.menuOpen}>
-                        <span className="icon">
-                            <Hamburger />
-                        </span>
-                    </a>
-                    <Link to="/">
-                        <Logo />
-                    </Link>
-                    <NavLinks />
+                <nav ref={c => (this.nav = c)}>
+                    <CookieBanner />
+                    <div className="text-secondary" id="nav-container">
+                        <a
+                            href="#mobilenav"
+                            id="menu-open"
+                            onClick={this.menuOpen}
+                        >
+                            <span className="icon">
+                                <Hamburger />
+                            </span>
+                        </a>
+                        <Link to="/">
+                            <Logo />
+                        </Link>
+                        <NavLinks />
+                    </div>
                 </nav>
                 {placeholder && (
                     <div
