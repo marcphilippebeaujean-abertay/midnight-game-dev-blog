@@ -10,4 +10,5 @@ Despite all of this, there are thousands of game developers worldwide, working d
 Starting a games company, especially when it's self funded, is a very risky move. Hence, many indie game developers prefer to work on their games during their free time, while balancing the development with a fulltime job. This project is dedicated to those developers. Whether you want to start your own game in your free time and increase its chances of success, or share your stories with others."
 
 ![Picture of Marc Philippe Beaujean leaning on some furniture](./marcpic.png)
-Marc Philippe Beaujean, Creator of Moonlight Game Dev
+
+<div class="text-center">Marc Philippe Beaujean, Creator of Moonlight Game Dev</div>

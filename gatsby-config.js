@@ -58,6 +58,11 @@ const siteMetadata = {
             name: "Youtube",
             icon: "/images/Youtube.svg",
             url: "https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA"
+        },
+        {
+            name: "Discord",
+            icon: "/images/Discord.svg",
+            url: "https://discord.gg/DHEgFx"
         }
     ],
     contact: {

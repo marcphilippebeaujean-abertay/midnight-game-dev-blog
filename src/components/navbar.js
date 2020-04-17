@@ -82,7 +82,7 @@ class Navbar extends React.Component {
     }
 
     changeNavbarPlaceholderHeight() {
-        let navBar = document.getElementById("nav");
+        let navBar = document.querySelector("nav");
         let navbarPlaceholderHeight = navBar.offsetHeight;
         this.setState({
             navbarPlaceholderHeight: navbarPlaceholderHeight
