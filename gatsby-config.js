@@ -38,6 +38,10 @@ const siteMetadata = {
         {
             name: "PRIVACY POLICY",
             url: "/privacy-policy"
+        },
+        {
+            name: "DATENSCHUTZ UND IMPRESSUM",
+            url: "/impressum-datenschutz"
         }
     ],
     social: [
