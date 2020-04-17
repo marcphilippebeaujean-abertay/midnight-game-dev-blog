@@ -1,0 +1,244 @@
+import React from "react";
+import { StaticQuery, graphql, Link } from "gatsby";
+import { PaperPlane, Loading } from "./icons";
+import {
+    emailRegex,
+    validateFormInput,
+    isValidFormInput
+} from "../constants/formUtils";
+import "../style/newsletter.less";
+
+class Newsletter extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            submitDisabled: false
+        };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+
+        this.showNewsletter = true;
+
+        if (this.props.apiUrl === "") {
+            this.showNewsletter = false;
+        }
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        if (!this.state.submitDisabled) {
+            let failedValidation = false;
+            if (
+                !isValidFormInput(
+                    this.policyCheckbox.name,
+                    this.policyCheckbox.checked
+                )
+            ) {
+                failedValidation = true;
+            }
+            console.log(emailRegex.test(this.dataEmail.value));
+            if (
+                !isValidFormInput(
+                    this.dataEmail.name,
+                    emailRegex.test(this.dataEmail.value)
+                )
+            ) {
+                failedValidation = true;
+            }
+            if (failedValidation) {
+                return;
+            }
+
+            this.setState({
+                submitDisabled: true
+            });
+            let email = encodeURI(this.dataEmail.value),
+                body = `email=${email}`;
+
+            fetch(this.props.apiUrl, {
+                method: "post",
+                body: body
+            })
+                .then(function(res) {
+                    return res.json();
+                })
+                .then(
+                    result => {
+                        this.setState({
+                            submitDisabled: false
+                        });
+                        this.resMessage.style.opacity = 1;
+                        if (result.response === "error") {
+                            this.resMessage.innerHTML =
+                                "There was an error in sending the message";
+                            this.resMessage.classList.add("color-error");
+                        } else {
+                            this.resMessage.innerHTML =
+                                "Message sent succesfully";
+                            this.resMessage.classList.remove("color-error");
+                        }
+                        this.dataName.value = "";
+                        this.dataEmail.value = "";
+                        let _this = this;
+                        setTimeout(function() {
+                            _this.resMessage.style.opacity = 0;
+                        }, 5000);
+                    },
+                    error => {
+                        this.resMessage.innerHTML = "Message sent succesfully";
+                        this.resMessage.classList.remove("color-error");
+                        this.setState({
+                            submitDisabled: false
+                        });
+                        let _this = this;
+                        setTimeout(function() {
+                            _this.resMessage.style.opacity = 0;
+                        }, 5000);
+                    }
+                );
+        }
+    }
+
+    componentDidMount() {
+        if (this.showNewsletter) {
+            let color = window
+                .getComputedStyle(this.btn, null)
+                .getPropertyValue("color");
+            this.btn.querySelector("path").setAttribute("fill", color);
+        }
+
+        let li = this.contactArea.querySelectorAll(".item");
+
+        li.forEach(function(e, i) {
+            let p = e.querySelector("path");
+            if (p)
+                p.setAttribute(
+                    "fill",
+                    window.getComputedStyle(e, null).getPropertyValue("color")
+                );
+        });
+    }
+
+    render() {
+        const formName = "newsletter";
+        const emailFieldName = "email" + "-" + formName;
+        const dataPolicyFieldName = "dataPolicy" + "-" + formName;
+        return (
+            <section id="newsletter" className="container">
+                <div className={"row"} ref={c => (this.contactArea = c)}>
+                    {this.showNewsletter && (
+                        <form>
+                            <div className="field">
+                                <label>
+                                    <div className="input-border">
+                                        <input
+                                            type="email"
+                                            ref={c => (this.dataEmail = c)}
+                                            className="field-box"
+                                            name={emailFieldName}
+                                            id={emailFieldName}
+                                            placeholder="Your email..."
+                                            required
+                                        />
+                                    </div>
+                                </label>
+                            </div>
+                            <p
+                                className="d-none color-error"
+                                id={emailFieldName + "-error"}
+                            >
+                                Please enter a valid email
+                            </p>
+                            <div className="field">
+                                <input
+                                    type="checkbox"
+                                    name={dataPolicyFieldName}
+                                    id={dataPolicyFieldName}
+                                    ref={c => (this.policyCheckbox = c)}
+                                />
+                                <span>
+                                    &nbsp;I have read and agree to the{" "}
+                                    <Link to={"/privacy-policy"}>
+                                        data policy
+                                    </Link>
+                                    .
+                                </span>
+                            </div>
+                            <p
+                                className="d-none color-error"
+                                id={dataPolicyFieldName + "-error"}
+                            >
+                                Please agree to the data policy
+                            </p>
+                            <div className="field">
+                                <label className="ib">
+                                    <button
+                                        className={
+                                            "btn" +
+                                            (this.state.submitDisabled
+                                                ? " disabled"
+                                                : "")
+                                        }
+                                        onClick={this.handleSubmit}
+                                        id="submit"
+                                        ref={c => (this.btn = c)}
+                                    >
+                                        SUBSCRIBE
+                                        <span
+                                            className="icon paper-plane"
+                                            style={{
+                                                display: this.state
+                                                    .submitDisabled
+                                                    ? "none"
+                                                    : "inline-block"
+                                            }}
+                                        >
+                                            <PaperPlane />
+                                        </span>
+                                        <span
+                                            className="icon loading"
+                                            style={{
+                                                display: !this.state
+                                                    .submitDisabled
+                                                    ? "none"
+                                                    : "inline-block"
+                                            }}
+                                        >
+                                            <Loading />
+                                        </span>
+                                    </button>
+                                </label>
+                            </div>
+                            <label>
+                                <p
+                                    className="res-message"
+                                    ref={c => (this.resMessage = c)}
+                                ></p>
+                            </label>
+                        </form>
+                    )}
+                </div>
+            </section>
+        );
+    }
+}
+
+export default () => (
+    <StaticQuery
+        query={graphql`
+            query {
+                site {
+                    siteMetadata {
+                        newsletter {
+                            api_url
+                        }
+                    }
+                }
+            }
+        `}
+        render={data => (
+            <Newsletter apiUrl={data.site.siteMetadata.newsletter.api_url} />
+        )}
+    />
+);

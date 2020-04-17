@@ -14,7 +14,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
-    const { createTypes } = actions
+    const { createTypes } = actions;
     const typeDefs = `
       type Site implements Node {
         siteMetadata: SiteMetaData
@@ -22,8 +22,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       type SiteMetaData {
         disqus: String
       }
-    `
-    createTypes(typeDefs)
+    `;
+    createTypes(typeDefs);
 
     /*const { createTypes } = actions;
     const typeDefs = [
@@ -42,11 +42,12 @@ exports.createSchemaCustomization = ({ actions }) => {
             interfaces: ["Node"]
         })
     ];*/
-}
+};
 
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions;
 
+    /**/
     return graphql(`
         {
             blog: allMarkdownRemark(
@@ -63,8 +64,8 @@ exports.createPages = ({ graphql, actions }) => {
                     }
                 }
             }
-            portfolio: allMarkdownRemark(
-                filter: { fileAbsolutePath: { regex: "/portfolio/" } }
+            podcast: allMarkdownRemark(
+                filter: { fileAbsolutePath: { regex: "/podcast/" } }
             ) {
                 edges {
                     node {
@@ -94,7 +95,7 @@ exports.createPages = ({ graphql, actions }) => {
             limitPost: site {
                 siteMetadata {
                     blogItemsPerPage
-                    portfolioItemsPerPage
+                    podcastEpisodesPerPage
                 }
             }
         }
@@ -118,25 +119,38 @@ exports.createPages = ({ graphql, actions }) => {
             });
         });
 
-        const PortfolioItems = result.data.portfolio.edges;
-        const PortfolioItemsPerPage =
-            result.data.limitPost.siteMetadata.portfolioItemsPerPage;
-        const numPortfolioItems = Math.ceil(
-            PortfolioItems.length / PortfolioItemsPerPage
+        const podcastEpisodes = result.data.podcast.edges;
+        const podcastEpisodesPerPage =
+            result.data.limitPost.siteMetadata.podcastEpisodesPerPage;
+        const numPodcastEpisodes = Math.ceil(
+            podcastEpisodes.length / podcastEpisodesPerPage
         );
 
-        Array.from({ length: numPortfolioItems }).forEach((_, i) => {
+        if (numPodcastEpisodes == 0) {
             createPage({
-                path: i === 0 ? `/portfolio` : `/portfolio/${i + 1}`,
-                component: path.resolve("./src/templates/portfolio-list.js"),
+                path: `/podcast`,
+                component: path.resolve("./src/templates/podcast-list.js"),
                 context: {
-                    limit: blogPostsPerPage,
-                    skip: i * blogPostsPerPage,
-                    numPages: numPortfolioItems,
-                    currentPage: i + 1
+                    limit: podcastEpisodesPerPage,
+                    skip: 0,
+                    numPages: 0,
+                    currentPage: 0
                 }
             });
-        });
+        } else {
+            Array.from({ length: numPodcastEpisodes }).forEach((_, i) => {
+                createPage({
+                    path: i === 0 ? `/podcast` : `/podcast/${i + 1}`,
+                    component: path.resolve("./src/templates/podcast-list.js"),
+                    context: {
+                        limit: podcastEpisodesPerPage,
+                        skip: i * podcastEpisodesPerPage,
+                        numPages: numPodcastEpisodes,
+                        currentPage: i + 1
+                    }
+                });
+            });
+        }
 
         result.data.blog.edges.forEach(({ node }) => {
             let template =
@@ -152,10 +166,10 @@ exports.createPages = ({ graphql, actions }) => {
             });
         });
 
-        result.data.portfolio.edges.forEach(({ node }) => {
+        result.data.podcast.edges.forEach(({ node }) => {
             let template =
                 node.frontmatter.template === undefined
-                    ? "portfolio"
+                    ? "podcast"
                     : node.frontmatter.template;
             createPage({
                 path: node.fields.slug,

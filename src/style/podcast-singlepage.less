@@ -1,7 +1,4 @@
-.post {
-    padding: 30px 0;
-    margin: 30px 0;
-
+.podcast-post {
     .head {
         text-align: center;
 
@@ -12,6 +9,7 @@
 
     .content {
         justify-content: center;
+        margin-top: 80px;
         padding: 0 40px;
 
         p,
@@ -47,19 +45,28 @@
                 margin: 0;
             }
         }
-    }
 
-    .center .img {
-        width: 400px;
-        max-width: 80%;
-        margin: 0 auto;
+        .row.flex {
+            .col {
+                padding: 10px;
+                flex: 1;
+            }
+        }
     }
 }
 
 @media only screen and (max-width: 800px) {
-    .blog-post {
+    .podcast-post {
         .content {
             padding: 0 10px;
         }
+    }
+
+    .podcast-post .content .row.flex .col {
+        flex: auto;
+    }
+
+    .podcast-post .head h1 {
+        font-size: 2.5em;
     }
 }

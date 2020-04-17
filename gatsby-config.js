@@ -1,15 +1,15 @@
 const siteMetadata = {
-    title: `Elemental`,
+    title: `Moonlight Game Dev`,
     siteUrl: `http://localhost`,
     capitalizeTitleOnHome: true,
     logo: `/images/logo.png`,
     icon: `/images/icon.png`,
     titleImage: `/images/wall.jpg`,
-    introTag: `PHOTOGRAPHER | VIDEOGRAPHER`,
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet accumsan arcu. Proin ac consequat arcu.`,
-    author: `@_akzhy`,
+    introTag: `THE PLACE WHERE PART-TIME GAME DEVELOPERS LEVEL UP.`,
+    description: `Discussions, Guides and Interviews in the form of a Podcast and Blog`,
+    author: `Marc Philippe Beaujean`,
     blogItemsPerPage: 10,
-    portfolioItemsPerPage: 10,
+    podcastEpisodesPerPage: 10,
     darkmode: true,
     switchTheme: true,
     navLinks: [
@@ -26,8 +26,8 @@ const siteMetadata = {
             url: "/blog"
         },
         {
-            name: "PORTFOLIO",
-            url: "/portfolio"
+            name: "PODCAST",
+            url: "/podcast"
         },
         {
             name: "CONTACT",
@@ -38,44 +38,35 @@ const siteMetadata = {
         {
             name: "PRIVACY POLICY",
             url: "/privacy-policy"
-        },
-        {
-            name: "GitHub",
-            url: "https://github.com/akzhy/gatsby-starter-elemental"
         }
     ],
     social: [
         {
-            name: "Facebook",
-            icon: "/images/Facebook.svg",
-            url: "#"
-        },
-        {
             name: "Twitter",
             icon: "/images/Twitter.svg",
-            url: "#"
+            url: "https://twitter.com/MarcBeaujean"
         },
         {
             name: "Instagram",
             icon: "/images/Instagram.svg",
-            url: "#"
+            url: "https://www.instagram.com/mpbeauj/"
         },
         {
             name: "Youtube",
             icon: "/images/Youtube.svg",
-            url: "#"
+            url: "https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA"
         }
     ],
     contact: {
         /* Leave the below value completely empty (no space either) if you don't want a contact form. */
         api_url: "./test.json",
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet accumsan arcu. Proin ac consequat arcu.`,
-        mail: "hi@akzhy.com",
-        phone: "000-000-0000",
-        address: "1234 \nLocation \nLocation"
-    }
+        description: `Have a blog article you want to share? Want to come on the podcast as a guest? Whatever the reason, I'd love to hear from you!`
+    },
+    newsletter: {
+        api_url: "./newsletter.json"
+    },
     // this is optional. you can uncomment this if you use disqus
-    // disqus: `your-disqus-shortname`
+    disqus: `moonlightgamedev`
 };
 
 const plugins = [
@@ -108,16 +99,16 @@ const plugins = [
         options: {
             strictMath: true
         }
-    },
-]
+    }
+];
 
-if(siteMetadata.disqus) {
+if (siteMetadata.disqus) {
     plugins.push({
         resolve: `gatsby-plugin-disqus`,
         options: {
-          shortname: siteMetadata.disqus
+            shortname: siteMetadata.disqus
         }
-    })
+    });
 }
 
 module.exports = {

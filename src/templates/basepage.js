@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Img from "gatsby-image";
 import SEO from "../components/seo";
+import SectionTitle from "../components/sectiontitle";
 import "../style/basepage.less";
 
 export default function({ data }) {
@@ -13,11 +14,13 @@ export default function({ data }) {
                 title={data.markdownRemark.frontmatter.title}
                 description={data.markdownRemark.frontmatter.description}
             />
-            <div className="container">
+            <section className="container">
+                <div className="section-title">
+                    <SectionTitle
+                        title={data.markdownRemark.frontmatter.title.toUpperCase()}
+                    />
+                </div>
                 <article className="post">
-                    <div className="head text-primary">
-                        <h1>{data.markdownRemark.frontmatter.title}</h1>
-                    </div>
                     <div className="content row flex">
                         {data.markdownRemark.frontmatter.image && (
                             <div className="center">
@@ -32,14 +35,15 @@ export default function({ data }) {
                             </div>
                         )}
                         <div
-                            className="col s12 m11 l10"
+                            className="center col s12 m11 l10"
+                            style={{ margin: "auto" }}
                             dangerouslySetInnerHTML={{
                                 __html: data.markdownRemark.html
                             }}
                         ></div>
                     </div>
                 </article>
-            </div>
+            </section>
         </Layout>
     );
 }

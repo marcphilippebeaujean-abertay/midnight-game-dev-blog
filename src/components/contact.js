@@ -268,7 +268,7 @@ class Contact extends React.Component {
                                     {this.props.contact.address}
                                 </li>
                             )}
-                            <li>
+                            <li className="social-margin">
                                 <SocialLinks />
                             </li>
                         </ul>
@@ -288,9 +288,6 @@ export default () => (
                         contact {
                             api_url
                             description
-                            mail
-                            phone
-                            address
                         }
                     }
                 }

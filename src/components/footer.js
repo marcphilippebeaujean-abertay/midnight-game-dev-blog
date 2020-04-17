@@ -11,6 +11,7 @@ export default function() {
             site {
                 siteMetadata {
                     title
+                    author
                 }
             }
         }
@@ -33,8 +34,22 @@ export default function() {
                 >
                     <FooterLinks />
                 </div>
+                <div className="mt-2">
+                    <p>
+                        Powered by
+                        <a
+                            href="https://github.com/akzhy/gatsby-starter-elemental"
+                            target="_blank"
+                            rel="rel=noopener noreferrer"
+                        >
+                            {" "}
+                            Elemental Theme{" "}
+                        </a>
+                        for Gatsby
+                    </p>
+                </div>
                 <p className="text-primary f-d">
-                    Copyright &copy; {query.site.siteMetadata.title}{" "}
+                    Copyright &copy; {query.site.siteMetadata.author}{" "}
                     {new Date().getFullYear()}
                 </p>
             </div>
