@@ -37,7 +37,6 @@ class Newsletter extends React.Component {
             ) {
                 failedValidation = true;
             }
-            console.log(emailRegex.test(this.dataEmail.value));
             if (
                 !isValidFormInput(
                     this.dataEmail.name,

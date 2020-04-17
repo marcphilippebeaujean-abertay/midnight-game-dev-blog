@@ -1,9 +1,12 @@
 import React from "react";
 import SectionTitle from "./sectiontitle";
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
 import { PaperPlane, Mapmarker, Mobile, Envelope, Loading } from "./icons";
+import { emailRegex, isValidFormInput } from "../constants/formUtils";
 import SocialLinks from "./sociallinks";
 import "../style/contact.less";
+
+const minimumMessageLength = 10;
 
 class Contact extends React.Component {
     constructor(props) {
@@ -31,10 +34,44 @@ class Contact extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         if (!this.state.submitDisabled) {
+            let formInputValidated = true;
+            if (
+                !isValidFormInput(
+                    this.dataEmail.name,
+                    emailRegex.test(this.dataEmail.value)
+                )
+            ) {
+                formInputValidated = false;
+            }
+            if (
+                !isValidFormInput(
+                    this.dataMessage.name,
+                    this.dataMessage.value.length >= minimumMessageLength
+                )
+            ) {
+                formInputValidated = false;
+            }
+            if (
+                !isValidFormInput(
+                    this.dataName.name,
+                    this.dataName.value.length > 0
+                )
+            ) {
+                formInputValidated = false;
+            }
+            if (
+                !isValidFormInput(
+                    this.policyCheckbox.name,
+                    this.policyCheckbox.checked
+                )
+            ) {
+                formInputValidated = false;
+            }
+            if (!formInputValidated) return;
+
             this.setState({
                 submitDisabled: true
             });
-
             let name = encodeURI(this.dataName.value),
                 email = encodeURI(this.dataEmail.value),
                 message = encodeURI(this.dataMessage.value),
@@ -106,6 +143,11 @@ class Contact extends React.Component {
     }
 
     render() {
+        const formName = "contact";
+        const formInputName = "name-" + formName;
+        const formInputEmail = "email-" + formName;
+        const formInputMessage = "message-" + formName;
+        const dataPolicyFieldName = "data-policy-" + formName;
         return (
             <section id="contact" className="container">
                 <div className="section-title">
@@ -128,11 +170,17 @@ class Contact extends React.Component {
                                                 type="text"
                                                 ref={c => (this.dataName = c)}
                                                 className="field-box"
-                                                name="name"
-                                                id="name"
+                                                name={formInputName}
+                                                id={formInputName}
                                                 required
                                             />
                                         </div>
+                                        <p
+                                            class="color-error d-none"
+                                            id={formInputName + "-error"}
+                                        >
+                                            Please enter a name
+                                        </p>
                                     </label>
                                 </div>
                                 <div className="field">
@@ -145,11 +193,17 @@ class Contact extends React.Component {
                                                 type="email"
                                                 ref={c => (this.dataEmail = c)}
                                                 className="field-box"
-                                                name="email"
-                                                id="email"
+                                                name={formInputEmail}
+                                                id={formInputEmail}
                                                 required
                                             />
                                         </div>
+                                        <p
+                                            class="color-error d-none"
+                                            id={formInputEmail + "-error"}
+                                        >
+                                            Please enter a valid email
+                                        </p>
                                     </label>
                                 </div>
                                 <div className="field">
@@ -165,11 +219,45 @@ class Contact extends React.Component {
                                                 }
                                                 className="field-box"
                                                 onChange={this.textAreaInput}
-                                                name="message"
-                                                id="message"
+                                                name={formInputMessage}
+                                                id={formInputMessage}
                                                 required
                                             />
                                         </div>
+                                        <p
+                                            class="color-error d-none"
+                                            id={formInputMessage + "-error"}
+                                        >
+                                            Please enter a longer message
+                                        </p>
+                                    </label>
+                                </div>
+                                <div className="field">
+                                    <label>
+                                        <div>
+                                            <input
+                                                type="checkbox"
+                                                name={dataPolicyFieldName}
+                                                id={dataPolicyFieldName}
+                                                ref={c =>
+                                                    (this.policyCheckbox = c)
+                                                }
+                                            />
+                                            <span>
+                                                &nbsp;I have read and agree to
+                                                the{" "}
+                                                <Link to={"/privacy-policy"}>
+                                                    data policy
+                                                </Link>
+                                                .
+                                            </span>
+                                        </div>
+                                        <p
+                                            className="d-none color-error"
+                                            id={dataPolicyFieldName + "-error"}
+                                        >
+                                            Please agree to the data policy
+                                        </p>
                                     </label>
                                 </div>
                                 <div className="field">
