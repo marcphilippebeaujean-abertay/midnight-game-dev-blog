@@ -1,8 +1,9 @@
 import React from "react";
 import Layout from "../components/layout";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import SEO from "../components/seo";
 import SocialLinks from "../components/sociallinks";
+import Newsletter from "../components/newsletter";
 import BlogList from "../components/list-blog";
 import Contact from "../components/contact";
 import "../style/wall.less";
@@ -131,14 +132,14 @@ class IndexPage extends React.Component {
                             </svg>
                         </div>
                         <p className="tag-line text-secondary">
-                            {this.props.data.site.siteMetadata.introTag}
-                        </p>
-                        <p className="caption text-tertiary">
                             {this.props.data.site.siteMetadata.description}
                         </p>
-                        <a href="#portfolio" className="btn">
-                            SEE WORKS
-                        </a>
+                        <p className="caption">
+                            Read the <Link to={"/blog"}>Blog</Link>, listen to
+                            the <Link to={"/podcast"}>Podcast</Link> or join the
+                            Discord Community
+                        </p>
+                        <Newsletter />
                     </div>
                     <div className="social-buttons">
                         <SocialLinks />
@@ -160,7 +161,6 @@ export const query = graphql`
                 title
                 capitalizeTitleOnHome
                 titleImage
-                introTag
                 description
                 social {
                     name

@@ -1,11 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql, Link } from "gatsby";
-import { PaperPlane, Loading } from "./icons";
-import {
-    emailRegex,
-    validateFormInput,
-    isValidFormInput
-} from "../constants/formUtils";
+import { PaperPlane, Loading, Envelope } from "./icons";
+import { emailRegex, isValidFormInput } from "../constants/formUtils";
 import "../style/newsletter.less";
 
 class Newsletter extends React.Component {
@@ -126,6 +122,8 @@ class Newsletter extends React.Component {
         return (
             <section id="newsletter" className="container">
                 <div className={"row"} ref={c => (this.contactArea = c)}>
+                    <h3>Newsletter</h3>
+                    <p>Get updated on new Blog Posts and Podcast Episodes.</p>
                     {this.showNewsletter && (
                         <form>
                             <div className="field">
@@ -141,35 +139,39 @@ class Newsletter extends React.Component {
                                             required
                                         />
                                     </div>
+                                    <p
+                                        className="d-none color-error"
+                                        id={emailFieldName + "-error"}
+                                    >
+                                        Please enter a valid email
+                                    </p>
                                 </label>
                             </div>
-                            <p
-                                className="d-none color-error"
-                                id={emailFieldName + "-error"}
-                            >
-                                Please enter a valid email
-                            </p>
+
                             <div className="field">
-                                <input
-                                    type="checkbox"
-                                    name={dataPolicyFieldName}
-                                    id={dataPolicyFieldName}
-                                    ref={c => (this.policyCheckbox = c)}
-                                />
-                                <span>
-                                    &nbsp;I have read and agree to the{" "}
-                                    <Link to={"/privacy-policy"}>
-                                        data policy
-                                    </Link>
-                                    .
-                                </span>
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        name={dataPolicyFieldName}
+                                        id={dataPolicyFieldName}
+                                        ref={c => (this.policyCheckbox = c)}
+                                    />
+                                    <span>
+                                        &nbsp;I have read and agree to the{" "}
+                                        <Link to={"/privacy-policy"}>
+                                            data policy
+                                        </Link>
+                                        .
+                                    </span>
+                                    <p
+                                        className="d-none color-error"
+                                        id={dataPolicyFieldName + "-error"}
+                                    >
+                                        Please agree to the data policy
+                                    </p>
+                                </label>
                             </div>
-                            <p
-                                className="d-none color-error"
-                                id={dataPolicyFieldName + "-error"}
-                            >
-                                Please agree to the data policy
-                            </p>
+
                             <div className="field">
                                 <label className="ib">
                                     <button

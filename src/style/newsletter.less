@@ -1,4 +1,9 @@
-#contact {
+#newsletter {
+    margin: 0 auto;
+    max-width: 500px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
     & > .row .col {
         padding: 15px;
     }
@@ -6,18 +11,22 @@
     .field {
         label {
             display: block;
-            padding: 0 30px;
-            margin: 0;
+            padding: 0 0px;
+            margin-top: 20px;
 
             &.ib {
                 display: inline-block;
             }
         }
     }
+
+    .icon {
+        color: inherit !important;
+    }
 }
 
 @media only screen and (max-width: 800px) {
-    #contact {
+    #newsletter {
         .field label {
             padding: 0;
         }
