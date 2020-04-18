@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql, Link } from "gatsby";
-import { PaperPlane, Loading, Envelope } from "./icons";
-import { emailRegex, isValidFormInput } from "../constants/formUtils";
+import { PaperPlane, Loading } from "./icons";
+import { emailRegex, isValidFormInput, encodeFormData } from "../constants/formUtils";
 import "../style/newsletter.less";
 
 class Newsletter extends React.Component {
@@ -48,14 +48,16 @@ class Newsletter extends React.Component {
             this.setState({
                 submitDisabled: true
             });
-            let email = encodeURI(this.dataEmail.value),
-                body = `email=${email}`;
 
-            fetch(this.props.apiUrl, {
-                method: "post",
-                body: body
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encodeFormData({
+                    "form-name": e.target.getAttribute("name"),
+                    email: this.dataEmail.value
+                })
             })
-                .then(function(res) {
+                .then(function (res) {
                     return res.json();
                 })
                 .then(
@@ -73,10 +75,9 @@ class Newsletter extends React.Component {
                                 "Message sent succesfully";
                             this.resMessage.classList.remove("color-error");
                         }
-                        this.dataName.value = "";
                         this.dataEmail.value = "";
                         let _this = this;
-                        setTimeout(function() {
+                        setTimeout(function () {
                             _this.resMessage.style.opacity = 0;
                         }, 5000);
                     },
@@ -87,7 +88,7 @@ class Newsletter extends React.Component {
                             submitDisabled: false
                         });
                         let _this = this;
-                        setTimeout(function() {
+                        setTimeout(function () {
                             _this.resMessage.style.opacity = 0;
                         }, 5000);
                     }
@@ -105,7 +106,7 @@ class Newsletter extends React.Component {
 
         let li = this.contactArea.querySelectorAll(".item");
 
-        li.forEach(function(e, i) {
+        li.forEach(function (e, i) {
             let p = e.querySelector("path");
             if (p)
                 p.setAttribute(
@@ -116,7 +117,7 @@ class Newsletter extends React.Component {
     }
 
     render() {
-        const formName = "newsletter";
+        const formName = "newsletter-subscription";
         const emailFieldName = "email" + "-" + formName;
         const dataPolicyFieldName = "dataPolicy" + "-" + formName;
         return (
@@ -125,7 +126,8 @@ class Newsletter extends React.Component {
                     <h3>Newsletter</h3>
                     <p>Get updated on new Blog Posts and Podcast Episodes.</p>
                     {this.showNewsletter && (
-                        <form>
+                        <form method="post" name={formName} data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={e => this.handleSubmit(e)}
+                        >
                             <div className="field">
                                 <label>
                                     <div className="input-border">
@@ -174,14 +176,15 @@ class Newsletter extends React.Component {
 
                             <div className="field">
                                 <label className="ib">
-                                    <button
+                                    <input
                                         className={
                                             "btn" +
                                             (this.state.submitDisabled
                                                 ? " disabled"
                                                 : "")
                                         }
-                                        onClick={this.handleSubmit}
+                                        type="submit"
+                                        name="submit-newsletter"
                                         id="submit"
                                         ref={c => (this.btn = c)}
                                     >
@@ -208,7 +211,7 @@ class Newsletter extends React.Component {
                                         >
                                             <Loading />
                                         </span>
-                                    </button>
+                                    </input>
                                 </label>
                             </div>
                             <label>
