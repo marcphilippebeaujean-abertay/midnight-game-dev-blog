@@ -62,21 +62,24 @@ class Newsletter extends React.Component {
                 })
                 .then(
                     result => {
-                        this.resMessage.style.opacity = 1;
+                        this.resMessage.classList.remove("opacity-0")
                         if (result.response === "error") {
                             this.resMessage.innerHTML =
                                 "There was an error in sending the message";
-                            this.resMessage.classList.add("color-error");
+                            this.resMessage.classList.add("opacity-0");
                         } else {
                             this.resMessage.innerHTML =
                                 "Message sent succesfully";
-                            this.resMessage.classList.remove("color-error");
+                            this.resMessage.classList.remove("opacity-0");
                         }
                         this.dataEmail.value = "";
+                        this.policyCheckbox.checked = false;
                     },
                     error => {
                         this.resMessage.innerHTML = "Message sent succesfully";
-                        this.resMessage.classList.remove("color-error");
+                        this.resMessage.classList.remove("opacity-0");
+                        this.dataEmail.value = "";
+                        this.policyCheckbox.checked = false;
                     }
                 )
                 .finally(e => this.setState({
@@ -206,7 +209,7 @@ class Newsletter extends React.Component {
                             </div>
                             <label>
                                 <p
-                                    className="res-message"
+                                    className="res-message opacity-0"
                                     ref={c => (this.resMessage = c)}
                                 ></p>
                             </label>
