@@ -62,9 +62,6 @@ class Newsletter extends React.Component {
                 })
                 .then(
                     result => {
-                        this.setState({
-                            submitDisabled: false
-                        });
                         this.resMessage.style.opacity = 1;
                         if (result.response === "error") {
                             this.resMessage.innerHTML =
@@ -80,12 +77,11 @@ class Newsletter extends React.Component {
                     error => {
                         this.resMessage.innerHTML = "Message sent succesfully";
                         this.resMessage.classList.remove("color-error");
-                        this.setState({
-                            submitDisabled: false
-                        });
                     }
                 )
-                .catch(e => console.log(e))
+                .finally(e => this.setState({
+                    submitDisabled: false
+                }))
         }
     }
 
