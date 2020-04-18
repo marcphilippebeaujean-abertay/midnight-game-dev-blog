@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import { cookieBanner } from "../constants/storageKeys";
 import "../style/cookie-banner.less";
 
 export default () => {
-    const [cookiesAccepted, setCookieAccepted] = useState(
-        localStorage.getItem(cookieBanner) === "true"
-    );
+    const [cookiesAccepted, setCookieAccepted] = useState(false);
+
+    useEffect(() => {
+        if (localStorage.getItem(cookieBanner) === "true") {
+            setCookieAccepted(true);
+        }
+    })
 
     return cookiesAccepted ? null : (
         <div id="cookie-banner">

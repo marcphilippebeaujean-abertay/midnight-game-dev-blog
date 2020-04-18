@@ -2,7 +2,7 @@ import React from "react";
 import SectionTitle from "./sectiontitle";
 import { StaticQuery, graphql, Link } from "gatsby";
 import { PaperPlane, Mapmarker, Mobile, Envelope, Loading } from "./icons";
-import { emailRegex, isValidFormInput } from "../constants/formUtils";
+import { emailRegex, isValidFormInput, encodeFormData } from "../constants/formUtils";
 import SocialLinks from "./sociallinks";
 import "../style/contact.less";
 
@@ -81,7 +81,7 @@ class Contact extends React.Component {
                 method: "post",
                 body: body
             })
-                .then(function(res) {
+                .then(function (res) {
                     return res.json();
                 })
                 .then(
@@ -103,7 +103,7 @@ class Contact extends React.Component {
                         this.dataEmail.value = "";
                         this.dataMessage.value = "";
                         let _this = this;
-                        setTimeout(function() {
+                        setTimeout(function () {
                             _this.resMessage.style.opacity = 0;
                         }, 5000);
                     },
@@ -114,7 +114,7 @@ class Contact extends React.Component {
                             submitDisabled: false
                         });
                         let _this = this;
-                        setTimeout(function() {
+                        setTimeout(function () {
                             _this.resMessage.style.opacity = 0;
                         }, 5000);
                     }
@@ -132,7 +132,7 @@ class Contact extends React.Component {
 
         let li = this.contactArea.querySelectorAll(".item");
 
-        li.forEach(function(e, i) {
+        li.forEach(function (e, i) {
             let p = e.querySelector("path");
             if (p)
                 p.setAttribute(
