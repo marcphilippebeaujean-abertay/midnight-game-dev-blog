@@ -53,7 +53,7 @@ class Newsletter extends React.Component {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: encodeFormData({
-                    "form-name": e.target.getAttribute("name"),
+                    "form-name": this.form.getAttribute("name"),
                     email: this.dataEmail.value
                 })
             })
@@ -92,7 +92,8 @@ class Newsletter extends React.Component {
                             _this.resMessage.style.opacity = 0;
                         }, 5000);
                     }
-                );
+                )
+                .catch(e => console.log(e))
         }
     }
 
@@ -126,8 +127,10 @@ class Newsletter extends React.Component {
                     <h3>Newsletter</h3>
                     <p>Get updated on new Blog Posts and Podcast Episodes.</p>
                     {this.showNewsletter && (
-                        <form method="post" name={formName} data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={e => this.handleSubmit(e)}
+                        <form method="post" name={formName} data-netlify="true" data-netlify-honeypot="bot-field" ref={c => (this.form = c)}
                         >
+                            {/*Netlify required field */}
+                            <input type="hidden" name="form-name" value={formName} />
                             <div className="field">
                                 <label>
                                     <div className="input-border">
@@ -176,17 +179,16 @@ class Newsletter extends React.Component {
 
                             <div className="field">
                                 <label className="ib">
-                                    <input
+                                    <button
                                         className={
                                             "btn" +
                                             (this.state.submitDisabled
                                                 ? " disabled"
                                                 : "")
                                         }
-                                        type="submit"
-                                        name="submit-newsletter"
                                         id="submit"
                                         ref={c => (this.btn = c)}
+                                        onClick={this.handleSubmit}
                                     >
                                         SUBSCRIBE
                                         <span
@@ -211,12 +213,9 @@ class Newsletter extends React.Component {
                                         >
                                             <Loading />
                                         </span>
-                                    </input>
+                                    </button>
                                 </label>
                             </div>
-                            {/*Netlify required fields */}
-                            <input type="hidden" name="bot-field" />
-                            <input type="hidden" name="form-name" value={formName} />
                             <label>
                                 <p
                                     className="res-message"

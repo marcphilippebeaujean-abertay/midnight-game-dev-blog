@@ -24,24 +24,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       }
     `;
     createTypes(typeDefs);
-
-    /*const { createTypes } = actions;
-    const typeDefs = [
-        `type Site implements Node { SiteMetadata: SiteMetaData }`,
-        schema.buildObjectType({
-            name: "SiteMetadata",
-            fields: {
-                name: "String!",
-                firstName: "String!",
-                email: "String!",
-                receivedSwag: {
-                    type: "Boolean",
-                    resolve: source => source.receivedSwag || false
-                }
-            },
-            interfaces: ["Node"]
-        })
-    ];*/
 };
 
 exports.createPages = ({ graphql, actions }) => {
@@ -101,7 +83,6 @@ exports.createPages = ({ graphql, actions }) => {
         }
     `).then(result => {
         const blogPosts = result.data.blog.edges;
-
         const blogPostsPerPage =
             result.data.limitPost.siteMetadata.blogItemsPerPage;
         const numBlogPages = Math.ceil(blogPosts.length / blogPostsPerPage);
@@ -193,5 +174,5 @@ exports.createPages = ({ graphql, actions }) => {
                 }
             });
         });
-    });
+    }).catch(e => console.log(e))
 };

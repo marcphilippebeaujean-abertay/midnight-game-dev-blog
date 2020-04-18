@@ -49,10 +49,10 @@ class PodcastList extends React.Component {
     }
 }
 
-export default function({ data, pageContext }) {
+export default function ({ data, pageContext }) {
     return (
         <Layout>
-            <SEO lang="en" title="Portfolio" />
+            <SEO lang="en" title="Podcast" />
             <PodcastList datas={data} pageContext={pageContext} />
         </Layout>
     );
@@ -61,7 +61,7 @@ export default function({ data, pageContext }) {
 export const query = graphql`
     query podcastEpisodeListPage($skip: Int!, $limit: Int!) {
         allMarkdownRemark(
-            filter: { fileAbsolutePath: { regex: "/portfolio/" } }
+            filter: { fileAbsolutePath: { regex: "/podcast/" } }
             sort: { fields: [frontmatter___date], order: DESC }
             limit: $limit
             skip: $skip

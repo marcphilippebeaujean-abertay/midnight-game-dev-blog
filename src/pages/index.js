@@ -127,7 +127,7 @@ class IndexPage extends React.Component {
                                         .capitalizeTitleOnHome
                                         ? this.props.data.site.siteMetadata.title.toUpperCase()
                                         : this.props.data.site.siteMetadata
-                                              .title}
+                                            .title}
                                 </text>
                             </svg>
                         </div>
@@ -137,7 +137,7 @@ class IndexPage extends React.Component {
                         <p className="caption">
                             Read the <Link to={"/blog"}>Blog</Link>, listen to
                             the <Link to={"/podcast"}>Podcast</Link> or join the
-                            Discord Community
+                            <Link to={"https://discord.gg/DHEgFx"}> Discord Community </Link>
                         </p>
                         <Newsletter />
                     </div>
@@ -156,18 +156,18 @@ export default IndexPage;
 
 export const query = graphql`
     query {
-        site {
-            siteMetadata {
-                title
+                    site {
+                    siteMetadata {
+                    title
                 capitalizeTitleOnHome
                 titleImage
                 description
                 social {
                     name
                     url
-                    icon
-                }
+                icon
             }
         }
     }
+}
 `;
