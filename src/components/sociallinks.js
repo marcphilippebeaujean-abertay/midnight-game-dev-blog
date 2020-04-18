@@ -5,14 +5,14 @@ function ListItem(props) {
     const data = props.data;
     return (
         <li>
-            <a href={data.url} title={data.name}>
+            <a href={data.url} title={data.name} target="_blank" rel="noopener noreferrer">
                 <img src={data.icon} alt={data.name} />
             </a>
         </li>
     );
 }
 
-export default function() {
+export default function () {
     const data = useStaticQuery(graphql`
         query SocialQuery {
             site {
@@ -28,7 +28,7 @@ export default function() {
     `);
     const items = data.site.siteMetadata.social;
     let list = [];
-    items.forEach(function(e, i) {
+    items.forEach(function (e, i) {
         list.push(<ListItem key={e.url + "-" + e.icon + "-" + i} data={e} />);
     });
     return <ul className="social-links">{list}</ul>;

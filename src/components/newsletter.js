@@ -54,7 +54,7 @@ class Newsletter extends React.Component {
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: encodeFormData({
                     "form-name": this.form.getAttribute("name"),
-                    email: this.dataEmail.value
+                    [this.dataEmail.name]: this.dataEmail.value
                 })
             })
                 .then(function (res) {

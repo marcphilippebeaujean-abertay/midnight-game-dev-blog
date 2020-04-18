@@ -137,7 +137,7 @@ class IndexPage extends React.Component {
                         <p className="caption">
                             Read the <Link to={"/blog"}>Blog</Link>, listen to
                             the <Link to={"/podcast"}>Podcast</Link> or join the
-                            <Link to={"https://discord.gg/DHEgFx"}> Discord Community </Link>
+                            <a href="https://discord.gg/DHEgFx" target="_blank" rel="noopener noreferrer"> Discord Community</a>.
                         </p>
                         <Newsletter />
                     </div>
