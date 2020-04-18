@@ -214,6 +214,9 @@ class Newsletter extends React.Component {
                                     </input>
                                 </label>
                             </div>
+                            {/*Netlify required fields */}
+                            <input type="hidden" name="bot-field" />
+                            <input type="hidden" name="form-name" value={formName} />
                             <label>
                                 <p
                                     className="res-message"
