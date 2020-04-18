@@ -8,7 +8,7 @@ import Date from "../components/date";
 import Comments from "../components/comments";
 import "../style/blog-singlepage.less";
 
-export default function({ data, location }) {
+export default function ({ data, location }) {
     return (
         <Layout>
             <SEO

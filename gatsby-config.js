@@ -91,6 +91,9 @@ const plugins = [
                     options: {
                         maxWidth: 1280
                     }
+                },
+                {
+                    resolve: `gatsby-remark-highlight-code`
                 }
             ]
         }

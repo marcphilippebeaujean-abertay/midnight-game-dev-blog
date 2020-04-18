@@ -2,6 +2,9 @@ import React from "react";
 import Head from "./head";
 import Navbar from "./navbar";
 import Footer from "./footer";
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
+
+deckDeckGoHighlightElement();
 
 const Layout = ({ placeholder, children }) => {
     return (
