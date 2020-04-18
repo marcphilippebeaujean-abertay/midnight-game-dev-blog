@@ -66,6 +66,7 @@ class Newsletter extends React.Component {
                             submitDisabled: false
                         });
                         this.resMessage.style.opacity = 1;
+                        console.log(result.response);
                         if (result.response === "error") {
                             this.resMessage.innerHTML =
                                 "There was an error in sending the message";

@@ -4,7 +4,7 @@ import { cookieBanner } from "../constants/storageKeys";
 import "../style/cookie-banner.less";
 
 export default () => {
-    const [cookiesAccepted, setCookieAccepted] = useState(false);
+    const [cookiesAccepted, setCookieAccepted] = useState(true);
 
     useEffect(() => {
         if (localStorage.getItem(cookieBanner) === "true") {
