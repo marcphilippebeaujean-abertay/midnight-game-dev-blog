@@ -65,18 +65,21 @@ class Newsletter extends React.Component {
                         this.resMessage.classList.remove("opacity-0")
                         if (result.response === "error") {
                             this.resMessage.innerHTML =
-                                "There was an error in sending the message";
+                                "There was an error while trying to subscribe.";
                             this.resMessage.classList.add("opacity-0");
+                            this.resMessage.classList.add("color-error");
+
                         } else {
                             this.resMessage.innerHTML =
-                                "Message sent succesfully";
+                                "Thanks for subscribing!";
                             this.resMessage.classList.remove("opacity-0");
+                            this.resMessage.classList.remove("color-error");
                         }
                         this.dataEmail.value = "";
                         this.policyCheckbox.checked = false;
                     },
                     error => {
-                        this.resMessage.innerHTML = "Message sent succesfully";
+                        this.resMessage.innerHTML = "Thanks for subscribing!";
                         this.resMessage.classList.remove("opacity-0");
                         this.dataEmail.value = "";
                         this.policyCheckbox.checked = false;
@@ -110,8 +113,8 @@ class Newsletter extends React.Component {
 
     render() {
         const formName = "newsletter-subscription";
-        const emailFieldName = "email" + "-" + formName;
-        const dataPolicyFieldName = "dataPolicy" + "-" + formName;
+        const emailFieldName = "email-" + formName;
+        const dataPolicyFieldName = "dataPolicy-" + formName;
         return (
             <section id="newsletter" className="container">
                 <div className={"row"} ref={c => (this.contactArea = c)}>

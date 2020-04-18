@@ -156,9 +156,9 @@ export default IndexPage;
 
 export const query = graphql`
     query {
-                    site {
-                    siteMetadata {
-                    title
+        site {
+            siteMetadata {
+                title
                 capitalizeTitleOnHome
                 titleImage
                 description

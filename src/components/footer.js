@@ -5,7 +5,7 @@ import Navlinks from "./navlinks";
 import FooterLinks from "./footer-links";
 import "../style/footer.less";
 
-export default function() {
+export default function () {
     const query = useStaticQuery(graphql`
         query {
             site {
@@ -40,7 +40,7 @@ export default function() {
                         <a
                             href="https://github.com/akzhy/gatsby-starter-elemental"
                             target="_blank"
-                            rel="rel=noopener noreferrer"
+                            rel="noopener noreferrer"
                         >
                             {" "}
                             Elemental Theme{" "}

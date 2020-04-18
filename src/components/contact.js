@@ -72,51 +72,53 @@ class Contact extends React.Component {
             this.setState({
                 submitDisabled: true
             });
-            let name = encodeURI(this.dataName.value),
-                email = encodeURI(this.dataEmail.value),
-                message = encodeURI(this.dataMessage.value),
-                body = `name=${name}&email=${email}&message=${message}`;
 
-            fetch(this.props.contact.api_url, {
-                method: "post",
-                body: body
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encodeFormData({
+                    "form-name": this.form.getAttribute("name"),
+                    [this.dataEmail.name]: this.dataEmail.value,
+                    [this.dataName.name]: this.dataName.value,
+                    [this.dataMessage.name]: this.dataMessage.value
+                })
             })
                 .then(function (res) {
                     return res.json();
                 })
                 .then(
                     result => {
-                        this.setState({
-                            submitDisabled: false
-                        });
                         this.resMessage.style.opacity = 1;
                         if (result.response === "error") {
                             this.resMessage.innerHTML =
                                 "There was an error in sending the message";
+                            this.resMessage.classList.add("opacity-0");
                             this.resMessage.classList.add("color-error");
                         } else {
                             this.resMessage.innerHTML =
                                 "Message sent succesfully";
+                            this.resMessage.classList.remove("opacity-0");
                             this.resMessage.classList.remove("color-error");
                         }
                         this.dataName.value = "";
                         this.dataEmail.value = "";
                         this.dataMessage.value = "";
-                        let _this = this;
-                        setTimeout(function () {
-                            _this.resMessage.style.opacity = 0;
-                        }, 5000);
+                        this.policyCheckbox.checked = false;
+                        this.setState({
+                            submitDisabled: false
+                        });
                     },
                     error => {
                         this.resMessage.innerHTML = "Message sent succesfully";
                         this.resMessage.classList.remove("color-error");
+                        this.resMessage.classList.remove("opacity-0");
+                        this.dataName.value = "";
+                        this.dataEmail.value = "";
+                        this.dataMessage.value = "";
+                        this.policyCheckbox.checked = false;
                         this.setState({
                             submitDisabled: false
                         });
-                        let _this = this;
-                        setTimeout(function () {
-                            _this.resMessage.style.opacity = 0;
-                        }, 5000);
                     }
                 );
         }
@@ -159,7 +161,10 @@ class Contact extends React.Component {
                 >
                     {this.showContactForm && (
                         <div className="col s12 m6">
-                            <form>
+                            <form method="post" name={formName} data-netlify="true" data-netlify-honeypot="bot-field" ref={c => (this.form = c)}
+                            >
+                                {/*Netlify required field */}
+                                <input type="hidden" name="form-name" value={formName} />
                                 <div className="field">
                                     <label>
                                         <span className="label text-tertiary">
@@ -300,7 +305,7 @@ class Contact extends React.Component {
                                     </label>
                                     <label>
                                         <p
-                                            className="res-message"
+                                            className="res-message opacity-0"
                                             ref={c => (this.resMessage = c)}
                                         ></p>
                                     </label>

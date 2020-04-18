@@ -10,7 +10,7 @@ export default () => {
         if (localStorage.getItem(cookieBanner) === "true") {
             setCookieAccepted(true);
         }
-    })
+    }, [])
 
     return cookiesAccepted ? null : (
         <div id="cookie-banner">
