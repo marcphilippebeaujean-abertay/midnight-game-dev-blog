@@ -66,7 +66,6 @@ class Newsletter extends React.Component {
                             submitDisabled: false
                         });
                         this.resMessage.style.opacity = 1;
-                        console.log(result.response);
                         if (result.response === "error") {
                             this.resMessage.innerHTML =
                                 "There was an error in sending the message";
@@ -77,10 +76,6 @@ class Newsletter extends React.Component {
                             this.resMessage.classList.remove("color-error");
                         }
                         this.dataEmail.value = "";
-                        let _this = this;
-                        setTimeout(function () {
-                            _this.resMessage.style.opacity = 0;
-                        }, 5000);
                     },
                     error => {
                         this.resMessage.innerHTML = "Message sent succesfully";
@@ -88,10 +83,6 @@ class Newsletter extends React.Component {
                         this.setState({
                             submitDisabled: false
                         });
-                        let _this = this;
-                        setTimeout(function () {
-                            _this.resMessage.style.opacity = 0;
-                        }, 5000);
                     }
                 )
                 .catch(e => console.log(e))
