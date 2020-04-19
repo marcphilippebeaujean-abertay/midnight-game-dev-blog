@@ -159,6 +159,11 @@ class Contact extends React.Component {
                     className={"row" + (this.showContactForm ? "" : " no-form")}
                     ref={c => (this.contactArea = c)}
                 >
+                    {this.props.contact.description && (
+                        <p className="text-secondary text-center">
+                            {this.props.contact.description}
+                        </p>
+                    )}
                     {this.showContactForm && (
                         <div className="col s12 m6">
                             <form method="post" name={formName} data-netlify="true" data-netlify-honeypot="bot-field" ref={c => (this.form = c)}
@@ -320,11 +325,6 @@ class Contact extends React.Component {
                                 : "col s12 details"
                         }
                     >
-                        {this.props.contact.description && (
-                            <p className="text-tertiary">
-                                {this.props.contact.description}
-                            </p>
-                        )}
                         <ul>
                             <li className="social-margin">
                                 <SocialLinks />

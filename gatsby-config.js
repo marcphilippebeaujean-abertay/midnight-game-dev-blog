@@ -10,7 +10,6 @@ const siteMetadata = {
     blogItemsPerPage: 10,
     podcastEpisodesPerPage: 10,
     darkmode: true,
-    switchTheme: true,
     navLinks: [
         {
             name: "HOME",
@@ -68,7 +67,7 @@ const siteMetadata = {
     contact: {
         /* Leave the below value completely empty (no space either) if you don't want a contact form. */
         api_url: "./test.json",
-        description: `Have a blog article you want to share? Want to come on the podcast as a guest? Whatever the reason, I'd love to hear from you!`
+        description: `Whatever the reason, I'd love to hear from you!`
     },
     newsletter: {
         api_url: "./newsletter.json"

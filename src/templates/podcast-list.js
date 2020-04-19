@@ -29,20 +29,19 @@ class PodcastList extends React.Component {
                 <section id="podcasts" className="container">
                     <div className="section-title">
                         <SectionTitle title="PODCAST" />
-                        <p>
-                            The Podcast is still under Development. Want to get
-                            informed when its released? Subscribe to the
-                            Newsletter!
-                        </p>
-                        <NewsletterForm />
-                        <p>
-                            Are you a game developer who is developing/has
-                            developed their game part-time?{" "}
-                            <Link to="/contact">
-                                I'd love to hear from you!
-                            </Link>
-                        </p>
                     </div>
+                    <p>
+                        The Podcast is still under Development. Want to get
+                        informed when its released? Subscribe to the
+                        Newsletter!
+                        </p>
+                    <NewsletterForm />
+                    <p>
+                        Are you an indie game developer?{" "}
+                        <Link to="/contact">
+                            I'd love to hear from you!
+                            </Link>
+                    </p>
                 </section>
             );
         }

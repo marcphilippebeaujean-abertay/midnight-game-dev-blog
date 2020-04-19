@@ -71,7 +71,7 @@ class IndexPage extends React.Component {
             winHeight: window.innerHeight
         });
     }
-
+    //  style={{ minHeight: this.state.winHeight + "px" }}
     render() {
         return (
             <Layout placeholder={false}>
@@ -81,7 +81,6 @@ class IndexPage extends React.Component {
                 />
                 <div
                     className="wall"
-                    style={{ height: this.state.winHeight + "px" }}
                 >
                     <div className="intro container">
                         <div className="main-title text-primary">
