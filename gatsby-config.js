@@ -5,7 +5,7 @@ const siteMetadata = {
     logo: `/images/logo.png`,
     icon: `/images/icon.png`,
     titleImage: `/images/wall.jpg`,
-    description: `Discussions, Guides and Interviews for part-time Game Developers.`,
+    description: `Discussions, Guides and Interviews for Indie Game Developers.`,
     author: `Marc Philippe Beaujean`,
     blogItemsPerPage: 10,
     podcastEpisodesPerPage: 10,
