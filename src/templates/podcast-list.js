@@ -30,13 +30,13 @@ class PodcastList extends React.Component {
                     <div className="section-title">
                         <SectionTitle title="PODCAST" />
                     </div>
-                    <p>
+                    <p className="text-center">
                         The Podcast is still under Development. Want to get
                         informed when its released? Subscribe to the
                         Newsletter!
                         </p>
                     <NewsletterForm />
-                    <p>
+                    <p className="text-center">
                         Are you an indie game developer?{" "}
                         <Link to="/contact">
                             I'd love to hear from you!

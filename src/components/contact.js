@@ -270,7 +270,7 @@ class Contact extends React.Component {
                                         </p>
                                     </label>
                                 </div>
-                                <div className="field">
+                                <div className="field mb-0">
                                     <label className="ib">
                                         <button
                                             className={
