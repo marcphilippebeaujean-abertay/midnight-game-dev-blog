@@ -2,7 +2,6 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Link from "./link";
 import { Location } from "@reach/router";
-import { Sun, Moon } from "./icons";
 
 function ListItem(props) {
     const data = props.data;
@@ -44,7 +43,6 @@ export default function () {
                         url
                     }
                     darkmode
-                    switchTheme
                 }
             }
         }
