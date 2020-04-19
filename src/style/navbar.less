@@ -1,6 +1,7 @@
 @import "theme";
 
 nav {
+    background: @background;
     position: fixed;
     width: 100%;
     z-index: 99;
@@ -11,13 +12,27 @@ nav {
         padding: 22px 44px;
         align-items: center;
         transition: height 0.25s;
-
-        .scrolled {
-            padding: 12px 36px;
-
+        &.scrolled {
+            padding: 12px 36px !important;
+    
             img {
-                width: 34px;
+                width: 34px !important;
             }
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to left, @colorPrimary, @colorSecondary);
+            opacity: 0;
+            transition: opacity 0.35s;
+        }
+    
+        &.scrolled:after {
+            opacity: 0.2;
         }
     }
 
@@ -192,13 +207,14 @@ nav {
 
         #nav-container {
             justify-content: center;
+            &
             .scrolled {
                 padding: 10px 36px;
             }
+        }
 
-            img {
-                width: 24px;
-            }
+        img {
+            width: 24px;
         }
 
         ul {
