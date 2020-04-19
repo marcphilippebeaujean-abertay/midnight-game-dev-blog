@@ -1,7 +1,7 @@
 import React from "react";
 import SectionTitle from "./sectiontitle";
 import { StaticQuery, graphql, Link } from "gatsby";
-import { PaperPlane, Mapmarker, Mobile, Envelope, Loading } from "./icons";
+import { PaperPlane, Loading } from "./icons";
 import { emailRegex, isValidFormInput, encodeFormData } from "../constants/formUtils";
 import SocialLinks from "./sociallinks";
 import "../style/contact.less";
@@ -326,41 +326,6 @@ class Contact extends React.Component {
                             </p>
                         )}
                         <ul>
-                            {this.props.contact.mail && (
-                                <li className="text-secondary item">
-                                    <span className="icon">
-                                        <Envelope />
-                                    </span>
-                                    <a
-                                        href={
-                                            "mailto:" + this.props.contact.mail
-                                        }
-                                    >
-                                        {this.props.contact.mail}
-                                    </a>
-                                </li>
-                            )}
-                            {this.props.contact.phone && (
-                                <li className="text-secondary item">
-                                    <span className="icon">
-                                        <Mobile />
-                                    </span>
-                                    <a href={"tel:" + this.props.contact.phone}>
-                                        {this.props.contact.phone}
-                                    </a>
-                                </li>
-                            )}
-                            {this.props.contact.address && (
-                                <li
-                                    className="text-tertiary item"
-                                    style={{ whiteSpace: "pre" }}
-                                >
-                                    <span className="icon">
-                                        <Mapmarker />
-                                    </span>
-                                    {this.props.contact.address}
-                                </li>
-                            )}
                             <li className="social-margin">
                                 <SocialLinks />
                             </li>
