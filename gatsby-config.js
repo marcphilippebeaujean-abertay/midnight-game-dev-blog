@@ -4,7 +4,7 @@ const siteMetadata = {
     capitalizeTitleOnHome: true,
     logo: `/images/logo.png`,
     icon: `/images/icon.png`,
-    titleImage: `/images/wall.jpg`,
+    titleImage: `/images/logo-banner.png`,
     description: `Discussions, Guides and Interviews for Indie Game Developers.`,
     author: `Marc Philippe Beaujean`,
     blogItemsPerPage: 10,
@@ -109,7 +109,15 @@ const plugins = [
         options: {
             strictMath: true
         }
-    }
+    },
+    `gatsby-image`,
+    {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+            name: `images`,
+            path: `${__dirname}/static/images`,
+        },
+    },
 ];
 
 if (siteMetadata.disqus) {
