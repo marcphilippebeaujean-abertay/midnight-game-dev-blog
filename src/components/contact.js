@@ -160,7 +160,7 @@ class Contact extends React.Component {
                     ref={c => (this.contactArea = c)}
                 >
                     {this.props.contact.description && (
-                        <p className="text-secondary text-center">
+                        <p className="text-secondary text-center tag-line">
                             {this.props.contact.description}
                         </p>
                     )}

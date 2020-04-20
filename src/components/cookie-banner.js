@@ -7,8 +7,8 @@ export default () => {
     const [cookiesAccepted, setCookieAccepted] = useState(true);
 
     useEffect(() => {
-        if (localStorage.getItem(cookieBanner) === "true") {
-            setCookieAccepted(true);
+        if (localStorage.getItem(cookieBanner) !== "true") {
+            setCookieAccepted(false);
         }
     }, [])
 
