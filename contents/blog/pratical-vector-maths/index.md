@@ -7,8 +7,8 @@ banner: ./banner.jpg
 description: Want to make a cool indie game? Great! (un)Fortunately, a lot of interesting game mechanics are going to require a bit of maths. In this tutorial, I’ll be explaining some of the common operations that are used for implementing automated turrets, AI field of vision, projectiles, and many more.
 ---
 
-What is a Vector?
-A Vector is a mathematical unit, that can consist of more than one value. Its important to distinguish between vectors in traditional mathematics and in game engines, in this tutorial I will be discussing the practical parts for game development only. Vectors have a “length” or “magnitude” (you can find out how to calculate that here) that can be used to quantify the vectors total size.
+### What is a Vector?
+In essence, a Vector is a mathematical unit that can consist of more than one value. Its important to distinguish between vectors in traditional mathematics and in game engines, in this tutorial I will be discussing the practical parts for game development only. Vectors have a “length” or “magnitude” (you can find out how to calculate that here) that can be used to quantify the vectors total size.
 
 In game development, vectors have two or three dimensions (depending on whether you are making a 2D or 3D game) and are generally used to represent geometrical properties of objects within the game world (rotation, position, etc.).
 
