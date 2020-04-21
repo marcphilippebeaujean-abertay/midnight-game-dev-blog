@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import Logo from "./logo";
+import Banner from "./banner";
 import Navlinks from "./navlinks";
 import FooterLinks from "./footer-links";
 import "../style/footer.less";
@@ -22,7 +22,7 @@ export default function () {
             <div className="container">
                 <div className="logo">
                     <Link to="/" title={query.site.siteMetadata.title}>
-                        <Logo />
+                        <Banner bannerWrapperWidth={"200px"} />
                     </Link>
                 </div>
                 <div className="navlinks text-secondary">

@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/layout";
 import { graphql, Link } from "gatsby";
-import Img from "gatsby-image/withIEPolyfill"
+import Banner from "../components/banner";
 import SEO from "../components/seo";
 import SocialLinks from "../components/sociallinks";
 import Newsletter from "../components/newsletter";
@@ -22,7 +22,7 @@ class IndexPage extends React.Component {
                 >
                     <div className="intro container">
                         <div className="banner-wrapper text-primary">
-                            <Img fluid={this.props.data.logoBanner.childImageSharp.fluid} />
+                            <Banner />
                         </div>
                         <p className="tag-line text-secondary">
                             {this.props.data.site.siteMetadata.description}
