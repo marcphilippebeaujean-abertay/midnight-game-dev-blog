@@ -22,7 +22,6 @@ In game development, the most common use of a vector is for positioning. Say I a
 
 ![Diagram showing the way in which addition can be used to manipulate Vectors](./vector-addition-example.png)
 
-Displacement that occurs when adding a Vector (3,3) to a Vector (0, 0)
 Operations like multiplication or division can only be performed on Vectors using scalars, single values that we apply to all dimensions of the vector. For example, we can take the value 2 as our scalar. We can then multiply a vector (3, 3) by our scalar to get a vector (6, 6). This can be really useful for positioning as well, especially when we combine it with directional vectors.
 
 ### Vectors for Directions
