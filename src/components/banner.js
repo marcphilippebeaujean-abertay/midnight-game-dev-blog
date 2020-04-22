@@ -17,7 +17,7 @@ export default ({ bannerWrapperWidth }) => {
     const maxComponentWidth = bannerWrapperWidth === undefined ? "800px" : bannerWrapperWidth;
     return (
         <div style={{ maxWidth: maxComponentWidth, display: "block", margin: "0 auto" }}>
-            <Img fluid={query.logoBanner.childImageSharp.fluid} />
+            <Img fluid={query.logoBanner.childImageSharp.fluid} alt={"Banner of the moonlight game devs logo"} />
         </div>
     )
 }
