@@ -1,5 +1,5 @@
 const siteMetadata = {
-    title: `Moonlight Game Dev`,
+    title: `Moonlight Game Devs`,
     siteUrl: `http://localhost`,
     capitalizeTitleOnHome: true,
     logo: `/images/logo.png`,
