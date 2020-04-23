@@ -4,7 +4,7 @@ date: 2020-04-14
 template: blog
 image: ./image.jpg
 banner: ./banner.jpg
-description: Want to make a cool indie game? Great! (un)Fortunately, a lot of interesting game mechanics are going to require a bit of maths. In this tutorial, I’ll be explaining some of the common operations that are used for implementing automated turrets, AI field of vision, projectiles, and many more.
+description: Learn the practical uses of vector operations that are used for implementing automated turrets, AI field of vision, projectiles, and many more.
 ---
 
 ### What is a Vector?
