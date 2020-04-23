@@ -1,5 +1,5 @@
 ---
-title: 10 Unity3D Tips from the Blood Show Rally Developer
+title: 10 Unity3D Tips from the Developer of Blood Show Rally
 date: 2020-04-26
 template: blog
 image: ./image.jpg
