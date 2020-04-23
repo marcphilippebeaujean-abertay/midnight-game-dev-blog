@@ -5,7 +5,7 @@ const siteMetadata = {
     logo: `/images/logo.png`,
     icon: `/images/icon.png`,
     titleImage: `/images/logo-banner.png`,
-    description: `Discussions, Guides and Interviews for Indie Game Developers.`,
+    description: `Stories and Lessons learn from real Game Developers.`,
     author: `Marc Philippe Beaujean`,
     blogItemsPerPage: 10,
     podcastEpisodesPerPage: 10,
