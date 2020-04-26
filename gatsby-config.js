@@ -94,6 +94,9 @@ const plugins = [
                 {
                     resolve: `gatsby-remark-highlight-code`,
                 },
+                /* {
+                     resolve: `gatsby-remark-responsive-iframe`,
+                 }*/
             ],
             plugins: [`gatsby-remark-images`],
         },

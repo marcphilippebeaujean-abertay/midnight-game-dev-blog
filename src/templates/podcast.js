@@ -3,14 +3,9 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Date from "../components/date";
-import { Row, Col } from "../components/page-components/grid";
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import "../style/podcast-singlepage.less";
 
-const components = {
-    row: Row,
-    col: Col
-};
 
 export default function ({ data }) {
     return (
