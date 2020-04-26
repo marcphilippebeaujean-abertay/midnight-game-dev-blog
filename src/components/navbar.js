@@ -91,27 +91,29 @@ class Navbar extends React.Component {
         const placeholder = this.props.placeholder;
         return (
             <React.Fragment>
-                <Sidebar
-                    sidebar={<SidebarContents />}
-                    open={this.state.sidebarOpen}
-                    onSetOpen={this.onSetSidebarOpen}
-                    sidebarClassName="sidebar-content"
-                    styles={{
-                        sidebar: {
-                            zIndex: 101,
-                            position: "fixed"
-                        },
-                        overlay: {
-                            zIndex: 100
-                        },
-                        dragHandle: {
-                            position: "fixed",
-                            zIndex: "99999"
-                        }
-                    }}
-                >
-                    <span></span>
-                </Sidebar>
+                <div id="nav-sidebar">
+                    <Sidebar
+                        sidebar={<SidebarContents />}
+                        open={this.state.sidebarOpen}
+                        onSetOpen={this.onSetSidebarOpen}
+                        sidebarClassName="sidebar-content"
+                        styles={{
+                            sidebar: {
+                                zIndex: 101,
+                                position: "fixed"
+                            },
+                            overlay: {
+                                zIndex: 100
+                            },
+                            dragHandle: {
+                                position: "fixed",
+                                zIndex: "99999"
+                            }
+                        }}
+                    >
+                        <span></span>
+                    </Sidebar>
+                </div>
                 <nav ref={c => (this.nav = c)}>
                     <CookieBanner />
                     <div className="text-secondary" id="nav-container">
