@@ -6,6 +6,7 @@ import LatestPosts from "../components/blogposts-latest";
 import SEO from "../components/seo";
 import Date from "../components/date";
 import Comments from "../components/comments";
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import "../style/blog-singlepage.less";
 
 export default function ({ data, location }) {
@@ -13,42 +14,39 @@ export default function ({ data, location }) {
         <Layout>
             <SEO
                 lang="en"
-                title={data.markdownRemark.frontmatter.title}
-                description={data.markdownRemark.frontmatter.description}
-                image={data.markdownRemark.frontmatter.image.publicURL}
+                title={data.mdx.frontmatter.title}
+                description={data.mdx.frontmatter.description}
+                image={data.mdx.frontmatter.image.publicURL}
             />
             <div className="container">
                 <article className="blog-post">
-                    {data.markdownRemark.frontmatter.banner != null && (
+                    {data.mdx.frontmatter.banner != null && (
                         <div className="banner">
                             <Img
                                 fluid={
-                                    data.markdownRemark.frontmatter.banner
+                                    data.mdx.frontmatter.banner
                                         .childImageSharp.fluid
                                 }
                             />
                         </div>
                     )}
                     <div className="head text-primary">
-                        <h1>{data.markdownRemark.frontmatter.title}</h1>
+                        <h1>{data.mdx.frontmatter.title}</h1>
                         <p className="post-date">
-                            <Date data={data.markdownRemark.frontmatter.date} />
+                            <Date data={data.mdx.frontmatter.date} />
                         </p>
                     </div>
                     <div className="content row flex">
-                        <div
-                            className="col s12 m11 l10"
-                            dangerouslySetInnerHTML={{
-                                __html: data.markdownRemark.html
-                            }}
-                        ></div>
+                        <div className="col s12 m11 l10">
+                            <MDXRenderer>{data.mdx.body}</MDXRenderer>
+                        </div>
                     </div>
                 </article>
                 <Comments
-                    title={data.markdownRemark.frontmatter.title}
+                    title={data.mdx.frontmatter.title}
                     location={location.pathname}
                 />
-                <LatestPosts id={data.markdownRemark.id} />
+                <LatestPosts id={data.mdx.id} />
             </div>
         </Layout>
     );
@@ -56,8 +54,8 @@ export default function ({ data, location }) {
 
 export const query = graphql`
     query($slug: String!) {
-        markdownRemark(fields: { slug: { eq: $slug } }) {
-            html
+        mdx(fields: { slug: { eq: $slug } }) {
+            body
             id
             frontmatter {
                 title

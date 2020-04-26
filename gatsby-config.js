@@ -81,21 +81,22 @@ const plugins = [
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     {
-        resolve: `gatsby-transformer-remark`,
+        resolve: `gatsby-plugin-mdx`,
         options: {
-            plugins: [
-                "gatsby-remark-copy-linked-files",
+            extensions: ['.mdx', '.md'],
+            gatsbyRemarkPlugins: [
                 {
                     resolve: `gatsby-remark-images`,
                     options: {
-                        maxWidth: 1000
-                    }
+                        maxWidth: 1280,
+                    },
                 },
                 {
-                    resolve: `gatsby-remark-highlight-code`
-                }
-            ]
-        }
+                    resolve: `gatsby-remark-highlight-code`,
+                },
+            ],
+            plugins: [`gatsby-remark-images`],
+        },
     },
     {
         resolve: `gatsby-source-filesystem`,

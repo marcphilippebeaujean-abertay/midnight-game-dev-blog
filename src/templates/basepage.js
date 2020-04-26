@@ -4,30 +4,31 @@ import Layout from "../components/layout";
 import Img from "gatsby-image";
 import SEO from "../components/seo";
 import SectionTitle from "../components/sectiontitle";
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import "../style/basepage.less";
 
-export default function({ data }) {
+export default function ({ data }) {
     return (
         <Layout>
             <SEO
                 lang="en"
-                title={data.markdownRemark.frontmatter.title}
-                description={data.markdownRemark.frontmatter.description}
+                title={data.mdx.frontmatter.title}
+                description={data.mdx.frontmatter.description}
             />
             <section className="container">
                 <div className="section-title">
                     <SectionTitle
-                        title={data.markdownRemark.frontmatter.title.toUpperCase()}
+                        title={data.mdx.frontmatter.title.toUpperCase()}
                     />
                 </div>
                 <article className="post">
                     <div className="content row flex">
-                        {data.markdownRemark.frontmatter.image && (
+                        {data.mdx.frontmatter.image && (
                             <div className="center">
                                 <div className="img">
                                     <Img
                                         fluid={
-                                            data.markdownRemark.frontmatter
+                                            data.mdx.frontmatter
                                                 .image.childImageSharp.fluid
                                         }
                                     />
@@ -37,10 +38,7 @@ export default function({ data }) {
                         <div
                             className="center col s12 m11 l10"
                             style={{ margin: "auto" }}
-                            dangerouslySetInnerHTML={{
-                                __html: data.markdownRemark.html
-                            }}
-                        ></div>
+                        ><MDXRenderer>{data.mdx.body}</MDXRenderer></div>
                     </div>
                 </article>
             </section>
@@ -50,8 +48,8 @@ export default function({ data }) {
 
 export const query = graphql`
     query($slug: String!) {
-        markdownRemark(fields: { slug: { eq: $slug } }) {
-            html
+        mdx(fields: { slug: { eq: $slug } }) {
+            body
             frontmatter {
                 title
                 description

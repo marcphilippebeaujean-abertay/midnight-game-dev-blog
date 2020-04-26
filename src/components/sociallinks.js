@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-function ListItem(props) {
+export function ListItem(props) {
     const data = props.data;
     return (
         <li>

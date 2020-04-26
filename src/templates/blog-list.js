@@ -9,7 +9,7 @@ import SEO from "../components/seo";
 class BlogList extends React.Component {
     render() {
         const query = this.props.datas;
-        if (query.allMarkdownRemark.edges.length > 0) {
+        if (query.allMdx.edges.length > 0) {
             return (
                 <section id="blog" className="container">
                     <div className="section-title">
@@ -28,7 +28,7 @@ class BlogList extends React.Component {
     }
 }
 
-export default function({ data, pageContext }) {
+export default function ({ data, pageContext }) {
     return (
         <Layout>
             <SEO lang="en" title="Blog" />
@@ -39,7 +39,7 @@ export default function({ data, pageContext }) {
 
 export const query = graphql`
     query blogListPage($skip: Int!, $limit: Int!) {
-        allMarkdownRemark(
+        allMdx(
             filter: { fileAbsolutePath: { regex: "/blog/" } }
             sort: { fields: [frontmatter___date], order: DESC }
             limit: $limit

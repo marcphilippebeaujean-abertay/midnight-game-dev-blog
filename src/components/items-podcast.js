@@ -65,10 +65,10 @@ class PodcastItem extends React.Component {
     }
 }
 
-export default function(props) {
-    const data = props.data.allMarkdownRemark.edges;
+export default function (props) {
+    const data = props.data.allMdx.edges;
     let items = [];
-    data.forEach(function(e, i) {
+    data.forEach(function (e, i) {
         if (props.remove && e.node.id === props.remove) return;
         items.push(<PodcastItem key={e.node.id} data={e} />);
     });

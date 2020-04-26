@@ -3,7 +3,7 @@ const path = require(`path`);
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
     const { createNodeField } = actions;
-    if (node.internal.type === `MarkdownRemark`) {
+    if (node.internal.type === `Mdx`) {
         const slug = createFilePath({ node, getNode, basePath: `basepages` });
         createNodeField({
             node,
@@ -32,7 +32,7 @@ exports.createPages = ({ graphql, actions }) => {
     /**/
     return graphql(`
         {
-            blog: allMarkdownRemark(
+            blog: allMdx(
                 filter: { fileAbsolutePath: { regex: "/blog/" } }
             ) {
                 edges {
@@ -46,7 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
                     }
                 }
             }
-            podcast: allMarkdownRemark(
+            podcast: allMdx(
                 filter: { fileAbsolutePath: { regex: "/podcast/" } }
             ) {
                 edges {
@@ -60,7 +60,7 @@ exports.createPages = ({ graphql, actions }) => {
                     }
                 }
             }
-            basepages: allMarkdownRemark(
+            basepages: allMdx(
                 filter: { fileAbsolutePath: { regex: "/basepages/" } }
             ) {
                 edges {

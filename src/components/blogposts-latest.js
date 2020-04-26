@@ -2,10 +2,10 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import BlogItems from "./items-blog";
 
-export default function(props) {
+export default function (props) {
     const query = useStaticQuery(graphql`
         query latestBlogList {
-            allMarkdownRemark(
+            allMdx(
                 filter: { fileAbsolutePath: { regex: "/blog/" } }
                 limit: 6
                 sort: { fields: [frontmatter___date], order: DESC }
@@ -20,7 +20,7 @@ export default function(props) {
                             image {
                                 publicURL
                                 childImageSharp {
-                                    fluid(maxWidth: 1920) {
+                                    fluid(maxWidth: 1000) {
                                         srcSet
                                         ...GatsbyImageSharpFluid
                                     }
@@ -36,7 +36,7 @@ export default function(props) {
             }
         }
     `);
-    if (query.allMarkdownRemark.edges.length > 0) {
+    if (query.allMdx.edges.length > 0) {
         return (
             <section id="latest-blogposts" className="container">
                 <div className="section-title">

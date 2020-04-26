@@ -11,7 +11,7 @@ import SEO from "../components/seo";
 class PodcastList extends React.Component {
     render() {
         const query = this.props.datas;
-        if (query.allMarkdownRemark.edges.length > 0) {
+        if (query.allMdx.edges.length > 0) {
             return (
                 <section id="podcasts" className="container">
                     <div className="section-title">
@@ -59,7 +59,7 @@ export default function ({ data, pageContext }) {
 
 export const query = graphql`
     query podcastEpisodeListPage($skip: Int!, $limit: Int!) {
-        allMarkdownRemark(
+        allMdx(
             filter: { fileAbsolutePath: { regex: "/podcast/" } }
             sort: { fields: [frontmatter___date], order: DESC }
             limit: $limit

@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Date from "../components/date";
 import { Row, Col } from "../components/page-components/grid";
-import MD from "gatsby-custom-md";
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import "../style/podcast-singlepage.less";
 
 const components = {
@@ -12,29 +12,26 @@ const components = {
     col: Col
 };
 
-export default function({ data }) {
+export default function ({ data }) {
     return (
         <Layout>
             <SEO
                 lang="en"
-                title={data.markdownRemark.frontmatter.title}
-                description={data.markdownRemark.frontmatter.description}
-                image={data.markdownRemark.frontmatter.image.publicURL}
+                title={data.mdx.frontmatter.title}
+                description={data.mdx.frontmatter.description}
+                image={data.mdx.frontmatter.image.publicURL}
             />
             <div className="container">
                 <article className="podcast-post">
                     <div className="head text-primary">
-                        <h1>{data.markdownRemark.frontmatter.title}</h1>
+                        <h1>{data.mdx.frontmatter.title}</h1>
                         <p className="post-date">
-                            <Date data={data.markdownRemark.frontmatter.date} />
+                            <Date data={data.mdx.frontmatter.date} />
                         </p>
                     </div>
                     <div className="content row flex">
                         <div className="col s12">
-                            <MD
-                                components={components}
-                                htmlAst={data.markdownRemark.htmlAst}
-                            />
+                            <MDXRenderer>{data.mdx.body}</MDXRenderer>
                         </div>
                     </div>
                 </article>
@@ -45,9 +42,8 @@ export default function({ data }) {
 
 export const query = graphql`
     query($slug: String!) {
-        markdownRemark(fields: { slug: { eq: $slug } }) {
-            html
-            htmlAst
+        mdx(fields: { slug: { eq: $slug } }) {
+            body
             id
             frontmatter {
                 title
