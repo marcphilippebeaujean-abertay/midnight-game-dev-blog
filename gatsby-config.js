@@ -81,19 +81,6 @@ const plugins = [
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     {
-        resolve: `gatsby-plugin-prefetch-google-fonts`,
-        options: {
-            fonts: [
-                {
-                    family: `Work Sans`,
-                },
-                {
-                    family: `Poppins`,
-                },
-            ],
-        },
-    },
-    {
         resolve: `gatsby-plugin-mdx`,
         options: {
             extensions: ['.mdx', '.md'],
@@ -101,7 +88,7 @@ const plugins = [
                 {
                     resolve: `gatsby-remark-images`,
                     options: {
-                        maxWidth: 1280,
+                        maxWidth: 900,
                     },
                 },
                 {

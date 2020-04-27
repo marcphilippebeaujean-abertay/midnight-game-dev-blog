@@ -26,7 +26,7 @@ function Header() {
                 href="https://cdn.jsdelivr.net/gh/akzhy/trunk/dist/trunk.min.css"
             />
             <link
-                href="https://fonts.googleapis.com/css?family=Work+Sans:800|Poppins&display=swap"
+                d href="https://fonts.googleapis.com/css?family=Work+Sans:800|Poppins&display=swap"
                 rel="stylesheet"
             />
         </Helmet>
