@@ -1,13 +1,16 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-export function ListItem(props) {
-    const data = props.data;
+export const SocialLink = ({ data }) => (
+    <a href={data.url} title={data.name} target="_blank" rel="noopener noreferrer">
+        <img src={data.icon} alt={data.name} />
+    </a>
+)
+
+function ListItem(props) {
     return (
         <li>
-            <a href={data.url} title={data.name} target="_blank" rel="noopener noreferrer">
-                <img src={data.icon} alt={data.name} />
-            </a>
+            <SocialLink data={props.data} />
         </li>
     );
 }

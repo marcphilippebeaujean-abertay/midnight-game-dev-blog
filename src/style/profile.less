@@ -2,6 +2,21 @@
     max-width: 600px;
     margin: 0 auto;
 
+    .image-container {
+        display: flex;
+        justify-content: flex-end !important;
+        padding-right: 1em;
+        flex-direction: row;
+        position: relative;
+        top: 15px;
+        img {
+            display: block;
+            width: 110px;
+            height: auto;
+            border-radius: 200px;
+        }
+    }
+
     h4{
         margin-top: 0px !important;
         margin-bottom: 0px !important;
@@ -12,73 +27,30 @@
         margin-right: 0px !important;
     }
 
-    .social-list-outter {
-        ul {
-            margin-top: 1rem;
-            list-style: none;
+    .social-links {
+        display: flex !important;
+        flex-direction: row  !important;
+        a {
+            display: block;
+            padding: 0 5px !important;
         }
-
-        & > ul {
-            & > li:not(:last-child) {
-                margin: 24px 0;
-                padding-left: 30px;
-                position: relative;
-    
-                .icon {
-                    position: absolute;
-                    left: 0;
-                    top: 3px;
-                }
-            }
-    
-            li {
-                ul li {
-                    display: inline-block;
-                    margin: 0 10px;
-    
-                    a {
-                        display: inline-block;
-    
-                        img {
-                            width: 48px;
-                        }
-                    }
-                }
-            }
-        }    
-    }
-
-    .social-list-outter > ul {
-        & > li:not(:last-child) {
-            display: inline-block;
-            margin: 24px;
-            text-align: left;
-            vertical-align: middle;
-
-            .icon {
-                position: absolute;
-                left: 0;
-                top: 50%;
-                transform: translate(0, -50%);
-            }
-        }
-    }
-
-    img {
-        display: block;
-        margin: 0 auto;
-        width: 150px;
-        height: auto;
-        border-radius: 200px;
     }
 }
 
-@media only screen and (max-width: 800px) {
-    h4 {
-        text-align: center !important;
-    }
-
-    .social-list-outter {
-        margin: 0 auto !important;
+@media only screen and (max-width: 600px) {
+    .profile {
+        h4 {
+            text-align: center !important;
+        }
+        .image-container {
+            top: 0px;
+            justify-content: center !important;
+            .img {
+                margin: 0 auto;
+            }
+        }
+        .social-links {
+            justify-content: center;
+        }
     }
 }

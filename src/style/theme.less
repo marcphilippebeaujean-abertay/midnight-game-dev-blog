@@ -122,19 +122,19 @@ h6 {
 
 .social-links {
     list-style: none;
+    a {
+        padding: 5px 0;
+    }
 
-    li {
-        margin: 5px 0;
+    img {
+        opacity: 0.7;
+        width: 48px;
+        transition: opacity .25s;
+    }
+
+    a:hover{
         img {
-            opacity: 0.7;
-            width: 48px;
-            transition: opacity .25s;
-        }
-
-        &:hover{
-            img{
-                opacity: 1;
-            }
+            opacity: 1;
         }
     }
 }
