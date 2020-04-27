@@ -21,7 +21,7 @@ export default function () {
                             image {
                                 publicURL
                                 childImageSharp {
-                                    fluid(maxWidth: 600) {
+                                    fluid(maxWidth: 450) {
                                         srcSet
                                         ...GatsbyImageSharpFluid
                                     }
