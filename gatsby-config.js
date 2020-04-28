@@ -5,7 +5,7 @@ const siteMetadata = {
     logo: `/images/logo.png`,
     icon: `/images/icon.png`,
     titleImage: `/images/logo-banner.png`,
-    description: `Stories and Lessons learned from real Game Developers.`,
+    description: `Where Game Developers share their Stories, Guides and Lessons learned.`,
     author: `Marc Philippe Beaujean`,
     blogItemsPerPage: 10,
     podcastEpisodesPerPage: 10,
