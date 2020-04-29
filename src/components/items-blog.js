@@ -44,9 +44,10 @@ class BlogItem extends React.Component {
                                 {this.props.data.node.frontmatter.title}
                             </Link>
                         </h3>
-                        <p className="text-tertiary">
+                        {/*<p className="text-tertiary">
                             {this.props.data.node.frontmatter.description}
-                        </p>
+                        </p>*/}
+                        <p></p>
                         <p
                             className="date text-secondary"
                             ref={c => (this.textSecondary = c)}
