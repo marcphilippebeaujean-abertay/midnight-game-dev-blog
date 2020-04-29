@@ -16,7 +16,7 @@ class PodcastItem extends React.Component {
 
     render() {
         return (
-            <div className="item col s12 m6">
+            <div className="item col s12 m6 l4">
                 <div className="box">
                     <div className="image">
                         <Img
