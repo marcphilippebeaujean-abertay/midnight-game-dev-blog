@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 import Date from "./date";
-import { Calendar } from "./icons";
+import CommentCount from "./comment-count"
+import { Calendar, Comment } from "./icons";
 import "../style/list-blog.less";
 
 class BlogItem extends React.Component {
@@ -58,6 +59,14 @@ class BlogItem extends React.Component {
                             <Date
                                 data={this.props.data.node.frontmatter.date}
                             />
+                        </p>
+                        <p className="text-secondary">
+                            <span className="icon">
+                                <Comment />
+                            </span>{" "}
+                            <span>
+                                <CommentCount location={this.props.data.node.fields.slug} title={this.props.data.node.frontmatter.title} />
+                            </span>
                         </p>
                     </div>
                 </div>

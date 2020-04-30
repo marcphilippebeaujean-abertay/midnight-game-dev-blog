@@ -20,7 +20,7 @@ export default function (props) {
                             image {
                                 publicURL
                                 childImageSharp {
-                                    fluid(maxWidth: 1000) {
+                                    fluid(maxWidth: 400) {
                                         srcSet
                                         ...GatsbyImageSharpFluid
                                     }

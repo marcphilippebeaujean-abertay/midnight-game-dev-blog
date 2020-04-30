@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Calendar = function() {
+export const Calendar = function () {
     return (
         <svg className="svg-icon" viewBox="0 0 20 20">
             <path
@@ -11,7 +11,7 @@ export const Calendar = function() {
     );
 };
 
-export const PaperPlane = function() {
+export const PaperPlane = function () {
     return (
         <svg className="svg-icon" viewBox="0 0 20 20">
             <path d="M17.218,2.268L2.477,8.388C2.13,8.535,2.164,9.05,2.542,9.134L9.33,10.67l1.535,6.787c0.083,0.377,0.602,0.415,0.745,0.065l6.123-14.74C17.866,2.46,17.539,2.134,17.218,2.268 M3.92,8.641l11.772-4.89L9.535,9.909L3.92,8.641z M11.358,16.078l-1.268-5.613l6.157-6.157L11.358,16.078z"></path>
@@ -19,15 +19,19 @@ export const PaperPlane = function() {
     );
 };
 
-export const Mapmarker = function() {
+export const Comment = () =>
+    <svg className="svg-icon" width="24" height="24" viewBox="-3 -3 30 30" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 1c-6.338 0-12 4.226-12 10.007 0 2.05.739 4.063 2.047 5.625l-1.993 6.368 6.946-3c1.705.439 3.334.641 4.864.641 7.174 0 12.136-4.439 12.136-9.634 0-5.812-5.701-10.007-12-10.007m0 1c6.065 0 11 4.041 11 9.007 0 4.922-4.787 8.634-11.136 8.634-1.881 0-3.401-.299-4.946-.695l-5.258 2.271 1.505-4.808c-1.308-1.564-2.165-3.128-2.165-5.402 0-4.966 4.935-9.007 11-9.007" /></svg>
+
+export const Mapmarker = function () {
     return (
         <svg className="svg-icon" viewBox="0 0 20 20">
-            <path d="M10,1.375c-3.17,0-5.75,2.548-5.75,5.682c0,6.685,5.259,11.276,5.483,11.469c0.152,0.132,0.382,0.132,0.534,0c0.224-0.193,5.481-4.784,5.483-11.469C15.75,3.923,13.171,1.375,10,1.375 M10,17.653c-1.064-1.024-4.929-5.127-4.929-10.596c0-2.68,2.212-4.861,4.929-4.861s4.929,2.181,4.929,4.861C14.927,12.518,11.063,16.627,10,17.653 M10,3.839c-1.815,0-3.286,1.47-3.286,3.286s1.47,3.286,3.286,3.286s3.286-1.47,3.286-3.286S11.815,3.839,10,3.839 M10,9.589c-1.359,0-2.464-1.105-2.464-2.464S8.641,4.661,10,4.661s2.464,1.105,2.464,2.464S11.359,9.589,10,9.589"></path>
+            <path
+                d="M10,1.375c-3.17,0-5.75,2.548-5.75,5.682c0,6.685,5.259,11.276,5.483,11.469c0.152,0.132,0.382,0.132,0.534,0c0.224-0.193,5.481-4.784,5.483-11.469C15.75,3.923,13.171,1.375,10,1.375 M10,17.653c-1.064-1.024-4.929-5.127-4.929-10.596c0-2.68,2.212-4.861,4.929-4.861s4.929,2.181,4.929,4.861C14.927,12.518,11.063,16.627,10,17.653 M10,3.839c-1.815,0-3.286,1.47-3.286,3.286s1.47,3.286,3.286,3.286s3.286-1.47,3.286-3.286S11.815,3.839,10,3.839 M10,9.589c-1.359,0-2.464-1.105-2.464-2.464S8.641,4.661,10,4.661s2.464,1.105,2.464,2.464S11.359,9.589,10,9.589"></path>
         </svg>
     );
 };
 
-export const Envelope = function() {
+export const Envelope = function () {
     return (
         <svg className="svg-icon" viewBox="0 0 20 20">
             <path d="M17.388,4.751H2.613c-0.213,0-0.389,0.175-0.389,0.389v9.72c0,0.216,0.175,0.389,0.389,0.389h14.775c0.214,0,0.389-0.173,0.389-0.389v-9.72C17.776,4.926,17.602,4.751,17.388,4.751 M16.448,5.53L10,11.984L3.552,5.53H16.448zM3.002,6.081l3.921,3.925l-3.921,3.925V6.081z M3.56,14.471l3.914-3.916l2.253,2.253c0.153,0.153,0.395,0.153,0.548,0l2.253-2.253l3.913,3.916H3.56z M16.999,13.931l-3.921-3.925l3.921-3.925V13.931z"></path>
@@ -35,7 +39,7 @@ export const Envelope = function() {
     );
 };
 
-export const Mobile = function() {
+export const Mobile = function () {
     return (
         <svg className="svg-icon" viewBox="0 0 20 20">
             <path
@@ -46,7 +50,7 @@ export const Mobile = function() {
     );
 };
 
-export const Loading = function() {
+export const Loading = function () {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +79,7 @@ export const Loading = function() {
     );
 };
 
-export const Hamburger = function() {
+export const Hamburger = function () {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +91,7 @@ export const Hamburger = function() {
     );
 };
 
-export const ChevronLeft = function() {
+export const ChevronLeft = function () {
     return (
         <svg className="svg-icon" viewBox="0 0 20 20">
             <path
@@ -98,7 +102,7 @@ export const ChevronLeft = function() {
     );
 };
 
-export const ChevronRight = function() {
+export const ChevronRight = function () {
     return (
         <svg className="svg-icon" viewBox="0 0 20 20">
             <path
@@ -109,7 +113,7 @@ export const ChevronRight = function() {
     );
 };
 
-export const Sun = function() {
+export const Sun = function () {
     return (
         <svg className="svg-icon fill-secondary" viewBox="0 0 20 20">
             <path
@@ -120,7 +124,7 @@ export const Sun = function() {
     );
 };
 
-export const Moon = function(props) {
+export const Moon = function (props) {
     return (
         <svg className="svg-icon fill-secondary" viewBox="0 0 20 20">
             <path

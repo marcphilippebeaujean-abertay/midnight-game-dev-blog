@@ -119,7 +119,7 @@ class Newsletter extends React.Component {
             <section id="newsletter" className="container">
                 <div className={"row"} ref={c => (this.contactArea = c)}>
                     <h3>Newsletter</h3>
-                    <p>Subscribe to <a href="https://byteschool.io/" target="_blank" rel="noopener noreferrer">ByteSchool</a> for weekly updates on Blog Posts and Podcast Episodes.</p>
+                    <p>Subscribe for updates on Blog Posts and Podcast Episodes. Sent out every two Weeks.</p>
                     {this.showNewsletter && (
                         <form method="post" name={formName} data-netlify="true" data-netlify-honeypot="bot-field" ref={c => (this.form = c)}
                         >
