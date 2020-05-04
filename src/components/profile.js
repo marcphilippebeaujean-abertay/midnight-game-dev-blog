@@ -11,7 +11,7 @@ export default ({ name, promoLinks, image, rounded }) => {
         <div className={`profile`}>
             <div className="row">
                 <div className="col s12 m4 image-container">
-                    <img src={image} alt={name + " profile image."} className={rounded !== null ? "rounded" : ""} />
+                    <img src={image} alt={name + " profile image."} className={rounded !== undefined ? "rounded" : ""} />
                 </div>
                 <div className="col s12 m8">
                     <h4>{name}</h4>
