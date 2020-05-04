@@ -7,7 +7,7 @@ export default ({ bannerWrapperWidth }) => {
     query{
         logoBanner: file(relativePath: { eq: "logo-banner.png" }) {
             childImageSharp {
-                fluid(maxWidth: 2000) {
+                fluid(maxWidth: 800) {
                     ...GatsbyImageSharpFluid
                 }
             }

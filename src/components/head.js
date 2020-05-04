@@ -29,6 +29,12 @@ function Header() {
                 d href="https://fonts.googleapis.com/css?family=Work+Sans:800|Poppins&display=swap"
                 rel="stylesheet"
             />
+            <link
+                rel="alternate"
+                type="application/rss+xml"
+                title="Moonlight Game Devs"
+                href="https://letscast.fm/podcasts/moonlight-game-devs-1345ba01/feed">
+            </link>
         </Helmet>
     );
 }

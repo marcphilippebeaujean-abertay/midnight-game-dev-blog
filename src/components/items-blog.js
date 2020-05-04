@@ -16,8 +16,10 @@ class BlogItem extends React.Component {
     }
 
     render() {
+        let itemStyle = this.props.itemDimensionClassNames === undefined ?
+            "item col s12 m6 l4" : "item col " + this.props.itemDimensionClassNames;
         return (
-            <div className="item col s12 m6 l4">
+            <div className={itemStyle}>
                 <div className="box">
                     <div className="image">
                         <Img
@@ -80,7 +82,7 @@ export default function (props) {
     let items = [];
     data.forEach(function (e, i) {
         if (props.remove && e.node.id === props.remove) return;
-        items.push(<BlogItem key={e.node.id} data={e} />);
+        items.push(<BlogItem key={e.node.id} data={e} itemDimensionClassNames={props.itemDimensionClassNames} />);
     });
-    return <div className="row">{items}</div>;
+    return <div className="row blog-list">{items}</div>;
 }

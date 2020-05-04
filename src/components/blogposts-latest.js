@@ -7,7 +7,7 @@ export default function (props) {
         query latestBlogList {
             allMdx(
                 filter: { fileAbsolutePath: { regex: "/blog/" } }
-                limit: 6
+                limit: 3
                 sort: { fields: [frontmatter___date], order: DESC }
             ) {
                 edges {
@@ -42,7 +42,7 @@ export default function (props) {
                 <div className="section-title">
                     <h2>Latest Blogposts</h2>
                 </div>
-                <BlogItems data={query} remove={props.id} />
+                <BlogItems data={query} remove={props.id} itemDimensionClassNames={"s12 m6 l6"} />
             </section>
         );
     } else {
