@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import BlogItems from "../components/items-blog";
+import BlogItems from "../components/items-preview";
 import SectionTitle from "../components/sectiontitle";
 import Pagination from "../components/pagination";
 import SEO from "../components/seo";
@@ -57,7 +57,7 @@ export const query = graphql`
                             childImageSharp {
                                 fluid(maxWidth: 290) {
                                     srcSet
-                                    ...GatsbyImageSharpFluid
+                                    ...GatsbyImageSharpFluid_withWebp
                                 }
                                 id
                             }

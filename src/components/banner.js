@@ -8,7 +8,7 @@ export default ({ bannerWrapperWidth }) => {
         logoBanner: file(relativePath: { eq: "logo-banner.png" }) {
             childImageSharp {
                 fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                 }
             }
         }

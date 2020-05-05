@@ -2,9 +2,10 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SectionTitle from "../components/sectiontitle";
-import PodcastItems from "../components/items-podcast";
+import PodcastItems from "../components/items-preview";
 import Pagination from "../components/pagination";
 import NewsletterForm from "../components/newsletter";
+import PodcastLinks from "../components/podcast-links";
 import { Link } from "gatsby";
 import SEO from "../components/seo";
 
@@ -17,6 +18,7 @@ class PodcastList extends React.Component {
                     <div className="section-title">
                         <SectionTitle title="PODCASTS" />
                     </div>
+                    <PodcastLinks />
                     <PodcastItems data={query} />
                     <Pagination
                         pageContext={this.props.pageContext}
@@ -29,6 +31,7 @@ class PodcastList extends React.Component {
                 <section id="podcasts" className="container">
                     <div className="section-title">
                         <SectionTitle title="PODCAST" />
+                        <PodcastLinks />
                     </div>
                     <p className="text-center">
                         The Podcast is still under Development. Want to get
