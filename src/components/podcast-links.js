@@ -48,7 +48,7 @@ export default () => {
         <div className="podcast-links social-links">
             <LinkButton iconImage={data.applePodcast.childImageSharp.fluid} name={"Apple Podcast"} url={""} />
             <LinkButton iconImage={data.googlePodcast.childImageSharp.fluid} name={"Google Podcast"} url={""} />
-            <LinkButton iconImage={data.spotifyIcon.childImageSharp.fluid} name={"Spotify"} url={"https://open.spotify.com/episode/0OVY3avAbH0DgNpbLzVZ42?si=1Ct3IZSZRWCR4GwqGT_ltg"} />
+            <LinkButton iconImage={data.spotifyIcon.childImageSharp.fluid} name={"Spotify"} url={"https://open.spotify.com/show/6aDR2KdCiwPoSySMphy2Ha?si=1Ct3IZSZRWCR4GwqGT_ltg"} />
             <LinkButton iconImage={data.rssIcon.childImageSharp.fluid} name={"RSS Feed"} url={"https://letscast.fm/podcasts/moonlight-game-devs-1345ba01/feed"} />
         </div>
     )
