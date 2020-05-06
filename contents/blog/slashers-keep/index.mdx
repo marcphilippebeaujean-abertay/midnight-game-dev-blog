@@ -1,10 +1,24 @@
 ---
-title: Damian Schlotter on Slasher's Keep
-date: 2020-04-29
-template: blog
+title: Slasher's Keep with Damian Schlotter
+date: 2020-06-01
+template: post
 image: ./image.jpg
 banner: ./banner.jpg
 description: Developer of the viral game Double Hitler shares the story and lessons learned behind developing his first Steam release.
+externals_profile:
+    image: ./author.jpg
+    name: Damian Schlotter
+    rounded: true
+    links:
+        - name: Twitter
+          icon: /images/Twitter.svg
+          url: https://twitter.com/DamianSchloter
+        - name: Steam
+          icon: /images/Steam.svg
+          url: https://store.steampowered.com/search/?developer=Damian%20Schloter
+        - name: Website
+          icon: /images/Website.svg
+          url: https://slasherskeep.info
 ---
 
 **What is your background and what led to you getting into game development?**  
@@ -19,6 +33,9 @@ Slasher’s Keep has been in development for a very long time, about 5 years. Th
   
 Unfortunately, that was not the case. I actually developed Double Hitler for a class and it was a side project I had going on next to Slasher’s Keep. Even though it got lots of views, I didn’t feel like it had a big impact on my current game in terms of exposure, yet I like to mention that I am the developer when messaging press about it.
   
+![Screenshot from the game Double Hitler](./double-hitler.png) 
+
+
 **What engine was used to develop the game and why?**  
   
 I went with Unity because from my research, that was simply what I found a lot of people were using. I went to art school, so the way I learned to code was through some courses in high school and essentially by solving problems as I had to – this was a very effective manner of learning by doing, but also left me with some problems showing up later in development, where the less experienced approach I had to development began to show. I ended up making a lot of things more complicated than I had to.
@@ -35,12 +52,18 @@ I mentioned that Dark Messiah was a big influence on the combat. People often th
   
 It came quite naturally after adding the sack slap ability and was honestly a godsend, because it helped add a lot of depth. It quickly became a core piece of the gameplay.
   
+![Several impaled enemies on some spikes, knocked there by the sack slap](./spikes.png)
+
 **The game is very challenging and has a steep learning curve. What did you do to teach the player and encourage gradual improvement at the game?**  
   
 Player attention spans these days are very small. One thing I noticed when developing the game is that people often don’t want to spend time reading text to understand the game. For example, many early access players would complain that attacks had too little impact, not realizing that you can charge the attacks for stronger hits. It was then that I realized I need to implement a convenient system that would teach players the game without frustrating them and “forcing” them to read text. I created some animated pop ups that would show up early in the game, that would demonstrate actions the player can perform with the correlating commands underneath. I also considered adding a tutorial level, but realized that this would only lead to a small improvement in making players familiar with the game, while taking up a huge time to make.
   
+![Tutorial prompt that shows the player how to move around](./tutorial-prompt.png)
+
 Another thing I added was a small miniboss that appears at the end of each first floor. He is designed to force you to use your loot sack, teaching the player the importance of the environment for combat. A fun detail is that he is actually carrying a loot sack of his own and can throw you into the spikes as well.
   
+![Player is being charged by a small knight with a loot bag, the bag boss](./bag-boss.png)  
+
 **Can you go into details for some of the procedural generation in your game?**  
   
 My initial thought was – random generation meant infinite content, so I wanted to add it to many aspects of the game. I quickly realized that to get something out of this type of system, you need to put a lot of effort in.
@@ -51,12 +74,19 @@ I began with generating rooms, initially just scattering random objects around a
   
 The original Diablo went about it by replacing the entire inventory system for consoles, but I didn’t have that much time. Instead, I made sure that only items which you can interact with were actually select-able and allowed users to move the items around the grid using the joystick. 
   
+![Depiction of the grid based inventory system, showing the players equipped and available items](./inventory.png)
+
 **Your game uses 2D sprites for a lot of objects in the game. What made you choose that over going for 3D art? How did that impact the gameplay and design?**  
   
 Initially, I thought that using 2D sprites in 3D would make things much easier and accelerate the development, especially given that I have a background in 2D art. Soon, this turn out to be false, because I found myself having to create multiple versions of enemies from the different possible perspectives that they could be facing the player. Another issue was with how the the objects began to look as the player go closer, sometimes I added additional sprites when this was the case. 
   
-**One way I found to cut corners here was by adding more round objects, which looked the same from all perspectives (hence why vases and slimes were easier to add to the game). Mirroring all enemy sprites cut down the number of art and complexity by a lot as well. Eventually, I created a system where I separated the arms from the body of some enemies so that I could animate them in 3D – this had to do with the mechanic that I talked about earlier, where the enemies attack has to actually line up with your own blade.**  
+One way I found to cut corners here was by adding more round objects, which looked the same from all perspectives (hence why vases and slimes were easier to add to the game). 
   
+![Golden slime enemy turned into a spike ball and damaging the player](./slime.png)
+
+Mirroring all enemy sprites cut down the number of art and complexity by a lot as well. Eventually, I created a system where I separated the arms from the body of some enemies so that I could animate them in 3D – this had to do with the mechanic that I talked about earlier, where the enemies attack has to actually line up with your own blade.
+
+
 I also struggled to debug how the objects would look in 3D, so I began rendering the entire sprite sheet onto objects to give me that feedback a little bit faster. Either way, I began to cut down on this system by making certain objects 3D, like the various physics items. 
   
 Either way, I’d say – if you are going for a visual style, you gotta go all the way. I thought initially that perhaps I could go into visual detail for some parts of the game, but cut corners on others. I think that this is a fallacy, because the most important part with any art style is consistency. That’s why a good idea in my opinion is to consider going with an abstract art style to begin with that is easier to make and stick with that.
