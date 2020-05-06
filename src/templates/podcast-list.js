@@ -4,9 +4,6 @@ import Layout from "../components/layout";
 import SectionTitle from "../components/sectiontitle";
 import PodcastItems from "../components/items-preview";
 import Pagination from "../components/pagination";
-import NewsletterForm from "../components/newsletter";
-import PodcastLinks from "../components/podcast-links";
-import { Link } from "gatsby";
 import SEO from "../components/seo";
 
 class PodcastList extends React.Component {
@@ -16,9 +13,8 @@ class PodcastList extends React.Component {
             return (
                 <section id="podcasts" className="container">
                     <div className="section-title">
-                        <SectionTitle title="PODCASTS" />
+                        <SectionTitle title="PODCAST" />
                     </div>
-                    <PodcastLinks />
                     <PodcastItems data={query} />
                     <Pagination
                         pageContext={this.props.pageContext}
@@ -26,28 +22,8 @@ class PodcastList extends React.Component {
                     />
                 </section>
             );
-        } else {
-            return (
-                <section id="podcasts" className="container">
-                    <div className="section-title">
-                        <SectionTitle title="PODCAST" />
-                        <PodcastLinks />
-                    </div>
-                    <p className="text-center">
-                        The Podcast is still under Development. Want to get
-                        informed when its released? Subscribe to the
-                        Newsletter!
-                        </p>
-                    <NewsletterForm />
-                    <p className="text-center">
-                        Are you an indie game developer?{" "}
-                        <Link to="/contact">
-                            I'd love to hear from you!
-                            </Link>
-                    </p>
-                </section>
-            );
         }
+        return null;
     }
 }
 
@@ -78,7 +54,7 @@ export const query = graphql`
                         image {
                             publicURL
                             childImageSharp {
-                                fluid(maxWidth: 300) {
+                                fluid(maxWidth: 450) {
                                     srcSet
                                     ...GatsbyImageSharpFluid_withWebp
                                 }
