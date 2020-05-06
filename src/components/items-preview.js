@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 import Date from "./date";
-import { Calendar } from "./icons";
+import CommentCount from "./comment-count"
+import { Calendar, Comment } from "./icons";
 import "../style/list-blog.less";
 
-class PodcastItem extends React.Component {
+class ItemPreview extends React.Component {
     componentDidMount() {
         this.color = window
             .getComputedStyle(this.textSecondary, null)
@@ -15,8 +16,10 @@ class PodcastItem extends React.Component {
     }
 
     render() {
+        let itemStyle = this.props.itemDimensionClassNames === undefined ?
+            "item col s12 m6 l4" : "item col " + this.props.itemDimensionClassNames;
         return (
-            <div className="item col s12 m6 l4">
+            <div className={itemStyle}>
                 <div className="box">
                     <div className="image">
                         <Img
@@ -44,9 +47,10 @@ class PodcastItem extends React.Component {
                                 {this.props.data.node.frontmatter.title}
                             </Link>
                         </h3>
-                        <p className="text-tertiary">
+                        {/*<p className="text-tertiary">
                             {this.props.data.node.frontmatter.description}
-                        </p>
+                        </p>*/}
+                        <p></p>
                         <p
                             className="date text-secondary"
                             ref={c => (this.textSecondary = c)}
@@ -57,6 +61,14 @@ class PodcastItem extends React.Component {
                             <Date
                                 data={this.props.data.node.frontmatter.date}
                             />
+                        </p>
+                        <p className="text-secondary">
+                            <span className="icon">
+                                <Comment />
+                            </span>{" "}
+                            <span>
+                                <CommentCount location={this.props.data.node.fields.slug} title={this.props.data.node.frontmatter.title} />
+                            </span>
                         </p>
                     </div>
                 </div>
@@ -70,7 +82,7 @@ export default function (props) {
     let items = [];
     data.forEach(function (e, i) {
         if (props.remove && e.node.id === props.remove) return;
-        items.push(<PodcastItem key={e.node.id} data={e} />);
+        items.push(<ItemPreview key={e.node.id} data={e} itemDimensionClassNames={props.itemDimensionClassNames} />);
     });
-    return <div className="row">{items}</div>;
+    return <div className="row blog-list">{items}</div>;
 }
