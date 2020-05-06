@@ -1,4 +1,5 @@
 import React from "react";
+import LazyLoad from 'react-lazy-load';
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import Layout from "../components/layout";
@@ -67,10 +68,12 @@ export default function ({ data, location }) {
                         )
                     }
                 </article>
-                <Comments
-                    title={data.mdx.frontmatter.title}
-                    location={location.pathname}
-                />
+                <LazyLoad offsetVertical={100}>
+                    <Comments
+                        title={data.mdx.frontmatter.title}
+                        location={location.pathname}
+                    />
+                </LazyLoad>
                 <LatestPosts id={data.mdx.id} />
             </div>
         </Layout>
