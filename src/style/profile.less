@@ -2,20 +2,19 @@
     max-width: 600px;
     margin: 0 auto;
 
-    .image-container {
+    .image-container-wrapper {
         display: flex;
         justify-content: flex-end !important;
         padding-right: 1em;
         flex-direction: row;
         position: relative;
-        top: 16px;
+        top: 12px;
+        .image-container {
+            width: 80px;
+            height: 80px;
+        }
         .rounded {
             border-radius: 200px;
-        }
-        img {
-            display: block;
-            width: 110px;
-            height: auto;
         }
     }
 
@@ -34,7 +33,7 @@
         flex-direction: row  !important;
         a {
             display: block;
-            padding: 0 10px !important;
+            padding: 5px 10px !important;
         }
     }
 }
@@ -44,11 +43,11 @@
         h4 {
             text-align: center !important;
         }
-        .image-container {
+        .image-container-wrapper {
             top: 0px;
             padding-right: 0px !important;
             justify-content: center !important;
-            .img {
+            .image-container {
                 margin: 0 auto;
             }
         }

@@ -2,10 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SectionTitle from "../components/sectiontitle";
-import PodcastItems from "../components/items-podcast";
+import PodcastItems from "../components/items-preview";
 import Pagination from "../components/pagination";
-import NewsletterForm from "../components/newsletter";
-import { Link } from "gatsby";
 import SEO from "../components/seo";
 
 class PodcastList extends React.Component {
@@ -15,7 +13,7 @@ class PodcastList extends React.Component {
             return (
                 <section id="podcasts" className="container">
                     <div className="section-title">
-                        <SectionTitle title="PODCASTS" />
+                        <SectionTitle title="PODCAST" />
                     </div>
                     <PodcastItems data={query} />
                     <Pagination
@@ -24,27 +22,8 @@ class PodcastList extends React.Component {
                     />
                 </section>
             );
-        } else {
-            return (
-                <section id="podcasts" className="container">
-                    <div className="section-title">
-                        <SectionTitle title="PODCAST" />
-                    </div>
-                    <p className="text-center">
-                        The Podcast is still under Development. Want to get
-                        informed when its released? Subscribe to the
-                        Newsletter!
-                        </p>
-                    <NewsletterForm />
-                    <p className="text-center">
-                        Are you an indie game developer?{" "}
-                        <Link to="/contact">
-                            I'd love to hear from you!
-                            </Link>
-                    </p>
-                </section>
-            );
         }
+        return null;
     }
 }
 
@@ -75,7 +54,7 @@ export const query = graphql`
                         image {
                             publicURL
                             childImageSharp {
-                                fluid(maxWidth: 300) {
+                                fluid(maxWidth: 450) {
                                     srcSet
                                     ...GatsbyImageSharpFluid_withWebp
                                 }

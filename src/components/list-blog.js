@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import BlogItems from "./items-blog";
+import BlogItems from "./items-preview";
 import SectionTitle from "./sectiontitle";
 
 export default function () {
@@ -21,9 +21,9 @@ export default function () {
                             image {
                                 publicURL
                                 childImageSharp {
-                                    fluid(maxWidth: 450) {
+                                    fluid(maxWidth: 350) {
                                         srcSet
-                                        ...GatsbyImageSharpFluid
+                                        ...GatsbyImageSharpFluid_withWebp
                                     }
                                     id
                                 }
