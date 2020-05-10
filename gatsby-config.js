@@ -62,7 +62,7 @@ const siteMetadata = {
         {
             name: "Discord",
             icon: "/images/Discord.svg",
-            url: "https://discord.gg/DHEgFx"
+            url: "https://discord.gg/rfcYJJB"
         },
         {
             name: "Reddit",
