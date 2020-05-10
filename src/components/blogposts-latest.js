@@ -17,6 +17,7 @@ export default function (props) {
                             title
                             description
                             date
+                            category
                             image {
                                 publicURL
                                 childImageSharp {

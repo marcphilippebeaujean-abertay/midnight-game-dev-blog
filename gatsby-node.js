@@ -1,5 +1,6 @@
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require(`path`);
+const kebabCase = require('kebab-case');
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
     const { createNodeField } = actions;
@@ -39,6 +40,7 @@ exports.createPages = ({ graphql, actions }) => {
                     node {
                         frontmatter {
                             template
+                            category
                         }
                         fields {
                             slug
@@ -100,6 +102,40 @@ exports.createPages = ({ graphql, actions }) => {
             });
         });
 
+        const categories = [];
+        blogPosts.forEach((post, index, arr) => {
+            if (post.node.frontmatter.category != null) {
+                post.node.frontmatter.category.forEach(cat => categories.push(cat))
+            }
+        });
+
+        const countCategories = categories.reduce((prev, curr) => {
+            prev[curr] = (prev[curr] || 0) + 1
+            return prev
+        }, {});
+        const allCategories = Object.keys(countCategories)
+
+        allCategories.forEach((cat, i) => {
+            const categorySlug = kebabCase(cat);
+            const link = `/category/${categorySlug.slice(1)}`
+            const numPostsForCategory = Math.ceil(countCategories[cat] / blogPostsPerPage);
+
+            Array.from({ length: numPostsForCategory }).forEach((_, i) => {
+                createPage({
+                    path: i === 0 ? link : `${link}/${i + 1}`,
+                    component: path.resolve("./src/templates/blog-category.js"),
+                    context: {
+                        //allCategories: allCategories,
+                        category: cat,
+                        limit: blogPostsPerPage,
+                        skip: i * blogPostsPerPage,
+                        currentPage: i + 1,
+                        numPages: Math.ceil(countCategories[cat] / blogPostsPerPage),
+                    },
+                })
+            })
+        })
+
         const podcastEpisodes = result.data.podcast.edges;
         const podcastEpisodesPerPage =
             result.data.limitPost.siteMetadata.podcastEpisodesPerPage;
@@ -107,31 +143,18 @@ exports.createPages = ({ graphql, actions }) => {
             podcastEpisodes.length / podcastEpisodesPerPage
         );
 
-        if (numPodcastEpisodes == 0) {
+        Array.from({ length: numPodcastEpisodes }).forEach((_, i) => {
             createPage({
-                path: `/podcast`,
+                path: i === 0 ? `/podcast` : `/podcast/${i + 1}`,
                 component: path.resolve("./src/templates/podcast-list.js"),
                 context: {
                     limit: podcastEpisodesPerPage,
-                    skip: 0,
-                    numPages: 0,
-                    currentPage: 0
+                    skip: i * podcastEpisodesPerPage,
+                    numPages: numPodcastEpisodes,
+                    currentPage: i + 1
                 }
             });
-        } else {
-            Array.from({ length: numPodcastEpisodes }).forEach((_, i) => {
-                createPage({
-                    path: i === 0 ? `/podcast` : `/podcast/${i + 1}`,
-                    component: path.resolve("./src/templates/podcast-list.js"),
-                    context: {
-                        limit: podcastEpisodesPerPage,
-                        skip: i * podcastEpisodesPerPage,
-                        numPages: numPodcastEpisodes,
-                        currentPage: i + 1
-                    }
-                });
-            });
-        }
+        });
 
         result.data.blog.edges.forEach(({ node }) => {
             let template =

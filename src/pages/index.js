@@ -1,4 +1,5 @@
 import React from "react";
+import LazyLoad from 'react-lazy-load';
 import Layout from "../components/layout";
 import { graphql, Link } from "gatsby";
 import Banner from "../components/banner";
@@ -16,6 +17,7 @@ class IndexPage extends React.Component {
                 <SEO
                     lang="en"
                     title={this.props.data.site.siteMetadata.title}
+                    image={this.props.data.site.siteMetadata.publicURL}
                 />
                 <div
                     className="wall"
@@ -38,7 +40,9 @@ class IndexPage extends React.Component {
                         <SocialLinks />
                     </div>
                 </div>
-                <BlogList />
+                <LazyLoad offsetVertical={500}>
+                    <BlogList />
+                </LazyLoad>
                 <Contact />
             </Layout>
         );

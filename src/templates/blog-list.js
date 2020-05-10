@@ -31,7 +31,7 @@ class BlogList extends React.Component {
 export default function ({ data, pageContext }) {
     return (
         <Layout>
-            <SEO lang="en" title="Blog" />
+            <SEO lang="en" title={pageContext.category} />
             <BlogList datas={data} pageContext={pageContext} />
         </Layout>
     );
@@ -51,6 +51,7 @@ export const query = graphql`
                     frontmatter {
                         title
                         description
+                        category
                         date
                         image {
                             publicURL

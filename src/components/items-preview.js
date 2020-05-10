@@ -3,7 +3,8 @@ import { Link } from "gatsby";
 import Img from "gatsby-image";
 import Date from "./date";
 import CommentCount from "./comment-count"
-import { Calendar, Comment } from "./icons";
+import { Calendar, Comment, Tag } from "./icons";
+import CategoryDisplay from "./category-display";
 import "../style/list-blog.less";
 
 class ItemPreview extends React.Component {
@@ -70,6 +71,16 @@ class ItemPreview extends React.Component {
                                 <CommentCount location={this.props.data.node.fields.slug} title={this.props.data.node.frontmatter.title} />
                             </span>
                         </p>
+                        {
+                            this.props.data.node.frontmatter.category != null && (
+                                <p className="text-secondary tags-container">
+                                    <span className="icon">
+                                        <Tag />
+                                    </span>
+                                    <CategoryDisplay categories={this.props.data.node.frontmatter.category} />
+                                </p>
+                            )
+                        }
                     </div>
                 </div>
             </div>

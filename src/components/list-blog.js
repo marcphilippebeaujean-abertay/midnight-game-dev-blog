@@ -17,6 +17,7 @@ export default function () {
                         frontmatter {
                             title
                             description
+                            category
                             date
                             image {
                                 publicURL

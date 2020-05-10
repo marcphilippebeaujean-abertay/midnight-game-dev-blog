@@ -10,6 +10,7 @@ import Comments from "../components/comments";
 import PodcastLinks from "../components/podcast-links";
 import Profile from "../components/profile";
 import PodlovePlayer from "../components/podlove-player";
+import Categories from "../components/category-display";
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import "../style/blog-singlepage.less";
 
@@ -40,6 +41,11 @@ export default function ({ data, location }) {
                             <Date data={data.mdx.frontmatter.date} />
                         </p>
                     </div>
+                    {data.mdx.frontmatter.category != null &&
+                        <div className="m-center tags-container">
+                            <Categories categories={data.mdx.frontmatter.category} />
+                        </div>
+                    }
                     {
                         data.mdx.frontmatter.podcast_player != null && (
                             <div>
@@ -68,7 +74,7 @@ export default function ({ data, location }) {
                         )
                     }
                 </article>
-                <LazyLoad offsetVertical={100}>
+                <LazyLoad offsetVertical={300}>
                     <Comments
                         title={data.mdx.frontmatter.title}
                         location={location.pathname}
@@ -88,6 +94,7 @@ export const query = graphql`
             frontmatter {
                 title
                 date
+                category
                 description
                 podcast_player {
                     id

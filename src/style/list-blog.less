@@ -1,5 +1,6 @@
 @import "theme";
 
+
 .blog-list{
 	.item{
 		padding: 30px;
@@ -12,6 +13,7 @@
 			}
 
 			.content{
+				position: relative;
 				padding: 20px 10px;
 
 				h3{
@@ -28,14 +30,16 @@
 					.icon{
 						margin-right: 10px;
 						fill: @textSecondary !important;
-					}
+					}	
 				}
-
+				.tags-container {
+					height: 27px !important;
+				}
 			}
 		}
 	}
-
 }
+
 
 @media only screen and (max-width: 800px){
 	.blog-list .item{

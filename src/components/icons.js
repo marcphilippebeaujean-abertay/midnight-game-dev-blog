@@ -39,6 +39,14 @@ export const Envelope = function () {
     );
 };
 
+export const Tag = function () {
+    return (
+        <svg className="svg-icon" width="24" height="24" viewBox="-3 -3 30 30" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+            <path d="M10.605 0h-10.605v10.609l13.391 13.391 10.609-10.604-13.395-13.396zm-4.191 6.414c-.781.781-2.046.781-2.829.001-.781-.783-.781-2.048 0-2.829.782-.782 2.048-.781 2.829-.001.782.782.781 2.047 0 2.829z" />
+        </svg>
+    )
+}
+
 export const Mobile = function () {
     return (
         <svg className="svg-icon" viewBox="0 0 20 20">

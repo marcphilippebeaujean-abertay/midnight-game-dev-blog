@@ -4,6 +4,7 @@ const siteMetadata = {
     capitalizeTitleOnHome: true,
     logo: `/images/logo.png`,
     icon: `/images/icon.png`,
+    browserPreviewIcon: `/images/browserPreviewIcon.png`,
     titleImage: `/images/logo-banner.png`,
     description: `Where Game Developers share their Stories, Guides and Lessons learned.`,
     author: `Marc Philippe Beaujean`,
@@ -62,6 +63,11 @@ const siteMetadata = {
             name: "Discord",
             icon: "/images/Discord.svg",
             url: "https://discord.gg/DHEgFx"
+        },
+        {
+            name: "Reddit",
+            icon: "/images/Reddit.svg",
+            url: "https://www.reddit.com/r/MoonlightGameDevs"
         }
     ],
     contact: {
