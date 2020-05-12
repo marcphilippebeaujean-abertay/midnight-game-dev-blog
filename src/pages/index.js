@@ -1,5 +1,4 @@
 import React from "react";
-import LazyLoad from 'react-lazy-load';
 import Layout from "../components/layout";
 import { graphql, Link } from "gatsby";
 import Banner from "../components/banner";
@@ -18,14 +17,16 @@ class IndexPage extends React.Component {
                     lang="en"
                     title={this.props.data.site.siteMetadata.title}
                     image={this.props.data.site.siteMetadata.publicURL}
+                    description={this.props.data.site.siteMetadata.description}
                 />
-                <div
+                <section
                     className="wall"
                 >
                     <div className="intro container">
                         <div className="banner-wrapper text-primary">
                             <Banner />
                         </div>
+                        <h1 hidden>Moonlight Game Devs</h1>
                         <p className="tag-line text-secondary">
                             {this.props.data.site.siteMetadata.description}
                         </p>
@@ -39,11 +40,14 @@ class IndexPage extends React.Component {
                     <div className="social-buttons">
                         <SocialLinks />
                     </div>
-                </div>
-                <LazyLoad offsetVertical={500}>
-                    <BlogList />
-                </LazyLoad>
-                <Contact />
+                </section>
+                <BlogList isSubsection={true} />
+                <section>
+                    <div className="section-title">
+                        <h2>CONTACT</h2>
+                    </div>
+                    <Contact />
+                </section>
             </Layout>
         );
     }

@@ -1,7 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import BlogItems from "./items-preview";
-import SectionTitle from "./sectiontitle";
 
 export default function () {
     const query = useStaticQuery(graphql`
@@ -43,7 +42,7 @@ export default function () {
         return (
             <section id="blog" className="container">
                 <div className="section-title">
-                    <SectionTitle title="BLOG" />
+                    <h2>BLOG</h2>
                 </div>
                 <BlogItems data={query} />
             </section>

@@ -2,7 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import BlogItems from "../components/items-preview";
-import SectionTitle from "../components/sectiontitle";
 import Pagination from "../components/pagination";
 import SEO from "../components/seo";
 
@@ -13,7 +12,7 @@ class BlogList extends React.Component {
             return (
                 <section id="blog" className="container">
                     <div className="section-title">
-                        <SectionTitle title="BLOG" />
+                        <h1>BLOG</h1>
                     </div>
                     <BlogItems data={query} />
                     <Pagination
@@ -29,9 +28,16 @@ class BlogList extends React.Component {
 }
 
 export default function ({ data, pageContext }) {
+    const description = `List of Moonlight Game Devs Blog Posts`;
+    const title = "Blog Posts"
+    if (pageContext.category !== undefined) {
+        const categoryText = ` for Category ${pageContext.category}`;
+        title += categoryText
+        description += categoryText;
+    }
     return (
         <Layout>
-            <SEO lang="en" title={pageContext.category} />
+            <SEO lang="en" title={title} description={description} />
             <BlogList datas={data} pageContext={pageContext} />
         </Layout>
     );

@@ -1,6 +1,6 @@
 const siteMetadata = {
     title: `Moonlight Game Devs`,
-    siteUrl: `http://localhost`,
+    siteUrl: `https://moonlightgamedevs.com`,
     capitalizeTitleOnHome: true,
     logo: `/images/logo.png`,
     icon: `/images/icon.png`,
@@ -48,11 +48,6 @@ const siteMetadata = {
             name: "Twitter",
             icon: "/images/Twitter.svg",
             url: "https://twitter.com/MarcBeaujean"
-        },
-        {
-            name: "Instagram",
-            icon: "/images/Instagram.svg",
-            url: "https://www.instagram.com/mpbeauj/"
         },
         {
             name: "Youtube",
@@ -153,6 +148,8 @@ const plugins = [
             defer: true,
         },
     },
+    `gatsby-plugin-sitemap`,
+    'gatsby-plugin-robots-txt'
 ];
 
 if (siteMetadata.disqus) {

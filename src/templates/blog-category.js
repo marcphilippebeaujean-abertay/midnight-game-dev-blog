@@ -2,7 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import BlogItems from "../components/items-preview";
-import SectionTitle from "../components/sectiontitle";
 import Pagination from "../components/pagination";
 import SEO from "../components/seo";
 
@@ -14,7 +13,7 @@ class BlogList extends React.Component {
             return (
                 <section id="blog" className="container">
                     <div className="section-title">
-                        <SectionTitle title={"#" + this.props.pageContext.category.toUpperCase()} />
+                        <h1>{"#" + this.props.pageContext.category.toUpperCase()}</h1>
                     </div>
                     <BlogItems data={query} />
                     <Pagination

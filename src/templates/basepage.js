@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Img from "gatsby-image";
 import SEO from "../components/seo";
-import SectionTitle from "../components/sectiontitle";
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import "../style/basepage.less";
 
@@ -17,9 +16,9 @@ export default function ({ data }) {
             />
             <section className="container">
                 <div className="section-title">
-                    <SectionTitle
-                        title={data.mdx.frontmatter.title.toUpperCase()}
-                    />
+                    <h1>
+                        {data.mdx.frontmatter.title.toUpperCase()}
+                    </h1>
                 </div>
                 <article className="post">
                     <div className="content row flex">

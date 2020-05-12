@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import SectionTitle from "../components/sectiontitle";
 import PodcastItems from "../components/items-preview";
 import Pagination from "../components/pagination";
 import SEO from "../components/seo";
@@ -13,7 +12,7 @@ class PodcastList extends React.Component {
             return (
                 <section id="podcasts" className="container">
                     <div className="section-title">
-                        <SectionTitle title="PODCAST" />
+                        <h1>PODCAST</h1>
                     </div>
                     <PodcastItems data={query} />
                     <Pagination
@@ -30,7 +29,7 @@ class PodcastList extends React.Component {
 export default function ({ data, pageContext }) {
     return (
         <Layout>
-            <SEO lang="en" title="Podcast" />
+            <SEO lang="en" title="Podcast" description="List of Moonlight Game Devs Podcast Episodes" />
             <PodcastList datas={data} pageContext={pageContext} />
         </Layout>
     );

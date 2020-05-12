@@ -1,5 +1,4 @@
 import React from "react";
-import SectionTitle from "./sectiontitle";
 import { StaticQuery, graphql, Link } from "gatsby";
 import { PaperPlane, Loading } from "./icons";
 import { emailRegex, isValidFormInput, encodeFormData } from "../constants/formUtils";
@@ -150,11 +149,9 @@ class Contact extends React.Component {
         const formInputEmail = "email-" + formName;
         const formInputMessage = "message-" + formName;
         const dataPolicyFieldName = "data-policy-" + formName;
+
         return (
-            <section id="contact" className="container">
-                <div className="section-title">
-                    <SectionTitle title="CONTACT" />
-                </div>
+            <div id="contact" className="container">
                 <div
                     className={"row" + (this.showContactForm ? "" : " no-form")}
                     ref={c => (this.contactArea = c)}
@@ -332,7 +329,7 @@ class Contact extends React.Component {
                         </ul>
                     </div>
                 </div>
-            </section>
+            </div>
         );
     }
 }

@@ -1,7 +1,7 @@
 @import "theme";
 
 
-.blog-list{
+.items-preview-list{
 	.item{
 		padding: 30px;
 
@@ -38,11 +38,26 @@
 			}
 		}
 	}
+
+	.med-screen-list {
+		display: none;
+	}
 }
 
 
 @media only screen and (max-width: 800px){
-	.blog-list .item{
+	.items-preview-list .item{
 		padding: 10px;
+	}
+}
+
+@media only screen and (max-width: 995px){
+	.items-preview-list {
+		.med-screen-list {
+			display: block !important;
+		}
+		.large-screen-list {
+			display: none !important;
+		}
 	}
 }

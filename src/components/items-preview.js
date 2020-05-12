@@ -5,7 +5,7 @@ import Date from "./date";
 import CommentCount from "./comment-count"
 import { Calendar, Comment, Tag } from "./icons";
 import CategoryDisplay from "./category-display";
-import "../style/list-blog.less";
+import "../style/list-items.less";
 
 class ItemPreview extends React.Component {
     componentDidMount() {
@@ -17,8 +17,7 @@ class ItemPreview extends React.Component {
     }
 
     render() {
-        let itemStyle = this.props.itemDimensionClassNames === undefined ?
-            "item col s12 m6 l4" : "item col " + this.props.itemDimensionClassNames;
+        let itemStyle = "item col s12 m6 l4";
         return (
             <div className={itemStyle}>
                 <div className="box">
@@ -90,10 +89,28 @@ class ItemPreview extends React.Component {
 
 export default function (props) {
     const data = props.data.allMdx.edges;
+
+    const itemsPerRow = 2;
+    const itemsPerRowLargeScreen = 3;
+
+    const numOfRows = Math.ceil(data.length / itemsPerRow);
+    const numOfRowsLargeScreen = Math.ceil(data.length / itemsPerRow);
+
     let items = [];
     data.forEach(function (e, i) {
         if (props.remove && e.node.id === props.remove) return;
         items.push(<ItemPreview key={e.node.id} data={e} itemDimensionClassNames={props.itemDimensionClassNames} />);
     });
-    return <div className="row blog-list">{items}</div>;
+    return <div className="items-preview-list">
+        <div className="med-screen-list">
+            {
+                Array.from({ length: numOfRows }).map((_, i) => <div className="row">{items.slice(i * itemsPerRow, (i + 1) * itemsPerRow)}</div>)
+            }
+        </div>
+        <div className="large-screen-list">
+            {
+                Array.from({ length: numOfRowsLargeScreen }).map((_, i) => <div className="row">{items.slice(i * itemsPerRowLargeScreen, (i + 1) * itemsPerRowLargeScreen)}</div>)
+            }
+        </div>
+    </div>;
 }
