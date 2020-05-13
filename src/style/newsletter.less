@@ -1,3 +1,5 @@
+@import "./theme";
+
 #newsletter {
     max-width: 500px;
     text-align: left;
@@ -23,6 +25,32 @@
     .icon {
         color: inherit !important;
     }
+}
+
+@popupMaxWidth: 500px;
+
+#newsletter-popup-wrapper {
+    position: fixed;
+    bottom: 40px;
+    width: 100%;
+    max-width: @popupMaxWidth;
+    z-index: 999;
+    left: -@popupMaxWidth;
+    background-color: @background;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease-in;
+
+    #popup-close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding-right: 30px !important;
+        padding-left: 30px !important;
+    }
+}
+
+.show-popup {
+    left: 0px !important;
 }
 
 @media only screen and (max-width: 800px) {

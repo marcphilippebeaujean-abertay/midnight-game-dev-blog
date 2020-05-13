@@ -112,7 +112,8 @@ class Newsletter extends React.Component {
     }
 
     render() {
-        const formName = "newsletter-subscription";
+        const popUpMod = this.props.isPopUp === true ? "-popup" : "";
+        const formName = "newsletter-subscription" + popUpMod;
         const emailFieldName = "email-" + formName;
         const dataPolicyFieldName = "dataPolicy-" + formName;
         return (

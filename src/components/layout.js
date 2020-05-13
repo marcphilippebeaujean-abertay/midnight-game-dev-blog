@@ -2,6 +2,7 @@ import React from "react";
 import Head from "./head";
 import Navbar from "./navbar";
 import Footer from "./footer";
+import NewsletterPopup from "./newsletter-popup";
 import { MDXProvider } from "@mdx-js/react"
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
 
@@ -14,6 +15,7 @@ const Layout = ({ placeholder, children }) => {
             <Navbar
                 placeholder={placeholder === undefined ? true : placeholder}
             />
+            <NewsletterPopup />
             <div className="wrapper">{children}</div>
             <Footer />
         </MDXProvider>
