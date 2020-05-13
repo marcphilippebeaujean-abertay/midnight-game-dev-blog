@@ -22,6 +22,7 @@ class IndexPage extends React.Component {
                 <section
                     className="wall"
                 >
+                    <h1 style={{ position: "absolute", opacity: "0" }}>Moonlight Game Devs</h1>
                     <div className="intro container">
                         <div className="banner-wrapper text-primary">
                             <Banner />

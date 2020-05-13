@@ -95,6 +95,9 @@ const plugins = [
                 {
                     resolve: `gatsby-remark-highlight-code`,
                 },
+                {
+                    resolve: `gatsby-remark-lazy-load`,
+                }
             ],
             plugins: [`gatsby-remark-images`],
         },

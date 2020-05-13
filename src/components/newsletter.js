@@ -184,7 +184,7 @@ class Newsletter extends React.Component {
                                         ref={c => (this.btn = c)}
                                         onClick={this.handleSubmit}
                                     >
-                                        SUBSCRIBE
+                                        SUBSCRIBE{" "}
                                         <span
                                             className="icon paper-plane"
                                             style={{

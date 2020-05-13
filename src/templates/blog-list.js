@@ -28,8 +28,8 @@ class BlogList extends React.Component {
 }
 
 export default function ({ data, pageContext }) {
-    const description = `List of Moonlight Game Devs Blog Posts`;
-    const title = "Blog Posts"
+    let description = `List of Moonlight Game Devs Blog Posts`;
+    let title = "Blog Posts"
     if (pageContext.category !== undefined) {
         const categoryText = ` for Category ${pageContext.category}`;
         title += categoryText
