@@ -70,9 +70,6 @@ const siteMetadata = {
         api_url: "./test.json",
         description: `Whatever the reason, I'd love to hear from you!`
     },
-    newsletter: {
-        api_url: "./newsletter.json"
-    },
     // this is optional. you can uncomment this if you use disqus
     disqus: `moonlightgamedev`
 };

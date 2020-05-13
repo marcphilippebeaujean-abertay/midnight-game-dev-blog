@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import { Link } from "gatsby";
 import { PaperPlane, Loading } from "./icons";
 import { emailRegex, isValidFormInput, encodeFormData } from "../constants/formUtils";
 import "../style/newsletter.less";
@@ -8,26 +8,25 @@ class Newsletter extends React.Component {
     constructor(props) {
         super(props);
 
+        console.log(props);
+
         this.state = {
-            submitDisabled: false
+            submitDisabled: false,
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
 
         this.showNewsletter = true;
-
-        if (this.props.apiUrl === "") {
-            this.showNewsletter = false;
-        }
     }
 
     handleSubmit(event) {
         event.preventDefault();
         if (!this.state.submitDisabled) {
             let failedValidation = false;
+            const popupSelectorMod = this.props.isPopup === true ? "-popup" : "";
             if (
                 !isValidFormInput(
-                    this.policyCheckbox.name,
+                    this.policyCheckbox.name + popupSelectorMod,
                     this.policyCheckbox.checked
                 )
             ) {
@@ -35,7 +34,7 @@ class Newsletter extends React.Component {
             }
             if (
                 !isValidFormInput(
-                    this.dataEmail.name,
+                    this.dataEmail.name + popupSelectorMod,
                     emailRegex.test(this.dataEmail.value)
                 )
             ) {
@@ -112,8 +111,8 @@ class Newsletter extends React.Component {
     }
 
     render() {
-        const popUpMod = this.props.isPopUp === true ? "-popup" : "";
-        const formName = "newsletter-subscription" + popUpMod;
+        const popupSelectorMod = this.props.isPopup === true ? "-popup" : "";
+        const formName = "newsletter-subscription";
         const emailFieldName = "email-" + formName;
         const dataPolicyFieldName = "dataPolicy-" + formName;
         return (
@@ -141,7 +140,7 @@ class Newsletter extends React.Component {
                                     </div>
                                     <p
                                         className="d-none color-error"
-                                        id={emailFieldName + "-error"}
+                                        id={emailFieldName + popupSelectorMod + "-error"}
                                     >
                                         Please enter a valid email
                                     </p>
@@ -165,7 +164,7 @@ class Newsletter extends React.Component {
                                     </span>
                                     <p
                                         className="d-none color-error"
-                                        id={dataPolicyFieldName + "-error"}
+                                        id={dataPolicyFieldName + popupSelectorMod + "-error"}
                                     >
                                         Please agree to the data policy
                                     </p>
@@ -225,21 +224,4 @@ class Newsletter extends React.Component {
     }
 }
 
-export default () => (
-    <StaticQuery
-        query={graphql`
-            query {
-                site {
-                    siteMetadata {
-                        newsletter {
-                            api_url
-                        }
-                    }
-                }
-            }
-        `}
-        render={data => (
-            <Newsletter apiUrl={data.site.siteMetadata.newsletter.api_url} />
-        )}
-    />
-);
+export default Newsletter;

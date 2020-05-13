@@ -183,7 +183,7 @@ class Contact extends React.Component {
                                             />
                                         </div>
                                         <p
-                                            class="color-error d-none"
+                                            className="color-error d-none"
                                             id={formInputName + "-error"}
                                         >
                                             Please enter a name
@@ -206,7 +206,7 @@ class Contact extends React.Component {
                                             />
                                         </div>
                                         <p
-                                            class="color-error d-none"
+                                            className="color-error d-none"
                                             id={formInputEmail + "-error"}
                                         >
                                             Please enter a valid email
@@ -232,7 +232,7 @@ class Contact extends React.Component {
                                             />
                                         </div>
                                         <p
-                                            class="color-error d-none"
+                                            className="color-error d-none"
                                             id={formInputMessage + "-error"}
                                         >
                                             Please enter a longer message
