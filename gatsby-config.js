@@ -3,7 +3,7 @@ const siteMetadata = {
     siteUrl: `https://moonlightgamedevs.com`,
     capitalizeTitleOnHome: true,
     logo: `/images/logo.png`,
-    icon: `/images/icon.png`,
+    icon: `/images/icon.svg`,
     browserPreviewIcon: `/images/browserPreviewIcon.png`,
     titleImage: `/images/logo-banner.png`,
     description: `Where Game Developers share their Stories, Guides and Lessons learned.`,
