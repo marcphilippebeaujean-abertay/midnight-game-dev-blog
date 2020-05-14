@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import NewsletterForm from "./newsletter";
 
-
 const showPopupWrapper = "newsletter-popup-wrapper";
 const showPopupToggleClass = "show-popup";
 const cookieKeyPopupHidden = "popup-hidden";
