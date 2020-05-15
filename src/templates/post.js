@@ -70,7 +70,8 @@ export default function ({ data, location }) {
                         data.mdx.frontmatter.externals_profile != null && (
                             <Profile name={data.mdx.frontmatter.externals_profile.name}
                                 image={data.mdx.frontmatter.externals_profile.image}
-                                promoLinks={data.mdx.frontmatter.externals_profile.links} />
+                                promoLinks={data.mdx.frontmatter.externals_profile.links}
+                                rounded={data.mdx.frontmatter.externals_profile.rounded} />
                         )
                     }
                 </article>
@@ -109,6 +110,7 @@ export const query = graphql`
                             }
                         }
                     }
+                    rounded
                     name
                     links {
                         icon
