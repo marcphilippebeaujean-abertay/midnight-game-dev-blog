@@ -35,6 +35,7 @@ function Header() {
                 title="Moonlight Game Devs"
                 href="https://letscast.fm/podcasts/moonlight-game-devs-1345ba01/feed">
             </link>
+            <script data-ad-client="ca-pub-9029972083545782" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </Helmet>
     );
 }
