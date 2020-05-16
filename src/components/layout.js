@@ -18,7 +18,6 @@ const Layout = ({ placeholder, children }) => {
                 placeholder={placeholder === undefined ? true : placeholder}
             />
             <NewsletterPopup />
-            <AdSense />
             <div className="wrapper">{children}</div>
             <Footer />
         </MDXProvider>
