@@ -16,6 +16,7 @@ export default () => {
             }
         }
     `);
+    return null;
 
     return (
         <div className="adwords-side-banner">
