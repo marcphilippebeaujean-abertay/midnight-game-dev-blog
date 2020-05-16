@@ -11,6 +11,10 @@ const siteMetadata = {
     blogItemsPerPage: 10,
     podcastEpisodesPerPage: 10,
     darkmode: true,
+    adSense: {
+        client: "ca-pub-9029972083545782",
+        slot: "6253304410"
+    },
     navLinks: [
         {
             name: "HOME",
