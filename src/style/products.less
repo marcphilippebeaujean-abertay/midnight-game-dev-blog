@@ -1,0 +1,110 @@
+@import "theme.less";
+@side-banner-width: 200px;
+
+.adwords-side-banner {
+    top: 200px;
+    position: absolute;
+    left: calc(100% - @side-banner-width);
+    width: @side-banner-width;
+    background-color: red;
+}
+
+.steam-component {
+    position: relative;
+    .box-art-wrapper {
+        width: 200px;
+        display: inline-block;
+        margin-right: 20px;
+        float: left;
+    }
+
+    .steam-header-wrapper{
+        display: flex;
+    }
+
+    .game-header-wrapper {
+        flex-grow: 1;
+    }
+    .icon-wrapper {
+        margin-left: 10px;
+        display: flex;
+        justify-content: end;
+        width: 60px;
+    }
+    h6 {
+        margin: 0 !important;
+    }
+    .icon{
+        position: relative;
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .price-tag {
+        position: absolute;
+        left: 70%;
+        top: 100%;
+        text-align: center;
+        color: white;
+        background-color: #75b022;
+        padding: 5px 10px;
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        p{
+            padding: 0;
+            margin: 0 !important;
+        }
+    }
+    .row{
+        display: flex;
+        flex-direction: row;
+        p{
+            margin-bottom: 0 !important;
+        }
+    }
+}
+
+.affiliate-block {
+    max-width: 700px;
+    width: 100%;
+    p{
+        margin: 0px 0 5px 0 !important;
+    }
+    .price-tag{
+        background-color: @textSecondary;
+        border-radius: 25px;
+        padding: 0 10px;
+        a{
+            color: white !important;
+        }
+        position: absolute;
+        left: 70%;
+        top: 92%;
+        p {
+            position: relative;
+            top: 3px;
+            left: 1px;
+        }
+    }
+    .p-row{
+        display: flex;
+        flex-direction: row;
+        .product-logo-wrapper{
+            min-width:  100px;
+            margin-right: 10px;
+        }
+    }
+}
+
+@media only screen and (max-width: 1690px) {
+    .adwords-side-banner {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .steam-component {
+        .icon{
+            display: none;
+        }
+    }
+}

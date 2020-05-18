@@ -1,19 +1,23 @@
 import React from "react";
-import { navigateTo } from "gatsby";
+import { Link } from "gatsby";
 import kebabCase from "kebab-case"
 import "../style/category-tags.less"
 
 export default ({ categories }) => {
     if (categories === null) return;
 
+    const categoryLinks = [];
+
+    categories.forEach(cat => {
+        const categorySlug = kebabCase(cat);
+        const link = `/category/${categorySlug.slice(1)}`
+        categoryLinks.push(<Link className="btn tag" to={link}>{cat}</Link>)
+    })
+
     return categories.length > 0 ? (
         <React.Fragment>
             {
-                categories.map(cat => <span className="btn tag" onClick={() => {
-                    const categorySlug = kebabCase(cat);
-                    const link = `/category/${categorySlug.slice(1)}`
-                    navigateTo(link);
-                }}>{cat}</span>)
+                categoryLinks
             }</React.Fragment>
     ) : null
 }

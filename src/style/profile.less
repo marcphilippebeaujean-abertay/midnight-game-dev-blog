@@ -1,14 +1,31 @@
+@import "./theme.less";
+
 .profile {
-    max-width: 600px;
+    border-style: solid;
+    border-width: thin 0 thin 0;
+    border-color: @textTertiary;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     margin: 0 auto;
+    max-width: 600px;
+    padding-top: 10px;
+    justify-content: center;
+
+    hr {
+        margin: 0 auto;
+        max-width: 600px;
+    }
+    .upper-hr{
+        margin-bottom: 10px;
+    }
 
     .image-container-wrapper {
-        display: flex;
+        display: inline-block;
         justify-content: flex-end !important;
         padding-right: 1em;
         flex-direction: row;
         position: relative;
-        top: 12px;
         .image-container {
             width: 80px;
             height: 80px;
@@ -18,9 +35,8 @@
         }
     }
 
-    h4{
-        margin-top: 0px !important;
-        margin-bottom: 0px !important;
+    .author-title {
+        font-size: 24px;
     }
 
     .social-margin {
@@ -39,10 +55,12 @@
 }
 
 @media only screen and (max-width: 600px) {
+    .author-title  {
+        text-align: center !important;
+        margin: 10px 0;
+    }
     .profile {
-        h4 {
-            text-align: center !important;
-        }
+        flex-direction: column;
         .image-container-wrapper {
             top: 0px;
             padding-right: 0px !important;

@@ -10,21 +10,19 @@ export default ({ name, promoLinks, image, rounded }) => {
     });
     return (
         <div className={`profile`}>
-            <div className="row">
-                <div className="col s12 m4 image-container-wrapper">
-                    <div className="image-container">
-                        <Img src={image} alt={name + " profile image."} fluid={image.childImageSharp.fluid} />
-                    </div>
+            <div className="image-container-wrapper">
+                <div className="image-container">
+                    <Img src={image} alt={name + " profile image."} fluid={image.childImageSharp.fluid} />
                 </div>
-                <div className="col s12 m8">
-                    <h4>{name}</h4>
-                    <div className="social-list-outter">
-                        <div className="social-links">
-                            {linksList}
-                        </div>
+            </div>
+            <div className="s12 m6">
+                <p className="text-secondary author-title"><b>{name}</b></p>
+                <div className="social-list-outter">
+                    <div className="social-links">
+                        {linksList}
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
