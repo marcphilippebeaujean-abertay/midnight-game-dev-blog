@@ -14,7 +14,7 @@ const SteamComponent = ({ description, name, boxArt, link }) => (
                 </div>
             </div>
             <div className="row">
-                <p>
+                <p className="main-body-p">
                     <div className="box-art-wrapper">
                         <Img fluid={boxArt} alt={name + " box art"} />
                     </div>

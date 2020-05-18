@@ -11,17 +11,16 @@
 
 .steam-component {
     position: relative;
+    
     .box-art-wrapper {
         width: 200px;
         display: inline-block;
         margin-right: 20px;
         float: left;
     }
-
     .steam-header-wrapper{
         display: flex;
     }
-
     .game-header-wrapper {
         flex-grow: 1;
     }
@@ -31,7 +30,7 @@
         justify-content: end;
         width: 60px;
     }
-    h6 {
+    h4 {
         margin: 0 !important;
     }
     .icon{
@@ -39,10 +38,13 @@
         width: 50px !important;
         height: 50px !important;
     }
-
+    .main-body-p {
+        margin-top: 20px !important;
+    }
     .price-tag {
         position: absolute;
-        left: 70%;
+        min-width: 180px;
+        left: 50%;
         top: 100%;
         text-align: center;
         color: white;
@@ -64,7 +66,7 @@
 }
 
 .affiliate-block {
-    max-width: 700px;
+    max-width: 500px;
     width: 100%;
     p{
         margin: 0px 0 5px 0 !important;
@@ -89,8 +91,8 @@
         display: flex;
         flex-direction: row;
         .product-logo-wrapper{
-            min-width:  100px;
-            margin-right: 10px;
+            min-width:  80px;
+            margin-right: 20px;
         }
     }
 }
@@ -103,8 +105,14 @@
 
 @media only screen and (max-width: 500px) {
     .steam-component {
-        .icon{
+        .icon-wrapper{
             display: none;
+        }
+        .box-art-wrapper {
+            width: 200px;
+            display: block;
+            margin: 0px auto 20px auto;
+            float: none;
         }
     }
 }
