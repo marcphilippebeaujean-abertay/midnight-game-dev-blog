@@ -12,7 +12,7 @@ import Profile from "../components/profile";
 import PodlovePlayer from "../components/podlove-player";
 import Categories from "../components/category-display";
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import "../style/blog-singlepage.less";
+import "../style/post-singlepage.less";
 
 export default function ({ data, location }) {
     return (
