@@ -51,7 +51,7 @@ const siteMetadata = {
         {
             name: "Twitter",
             icon: "/images/Twitter.svg",
-            url: "https://twitter.com/MarcBeaujean"
+            url: "https://twitter.com/devs_moonlight"
         },
         {
             name: "Youtube",
