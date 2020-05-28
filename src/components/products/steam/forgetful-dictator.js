@@ -8,7 +8,7 @@ export default () => {
         query ForgetfulDictator {
             boxArt: file(relativePath: { eq: "games_boxart/forgetful.jpg" }) {
                 childImageSharp {
-                    fluid(maxWidth: 250) {
+                    fluid(maxWidth: 300) {
                         ...GatsbyImageSharpFluid
                     }
                 }

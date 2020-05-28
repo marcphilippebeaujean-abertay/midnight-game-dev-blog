@@ -1,6 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import BlogItems from "./items-preview";
+import LazyLoad from "react-lazy-load";
 
 export default function (props) {
     const query = useStaticQuery(graphql`
@@ -39,12 +40,14 @@ export default function (props) {
     `);
     if (query.allMdx.edges.length > 0) {
         return (
-            <section id="latest-blogposts" className="container">
-                <div className="section-title">
-                    <h2>Latest Blogposts</h2>
-                </div>
-                <BlogItems data={query} remove={props.id} itemDimensionClassNames={"s12 m6 l6"} />
-            </section>
+            <LazyLoad offsetVertical={500}>
+                <section id="latest-blogposts" className="container">
+                    <div className="section-title">
+                        <h2>Latest Blogposts</h2>
+                    </div>
+                    <BlogItems data={query} remove={props.id} itemDimensionClassNames={"s12 m6 l6"} />
+                </section>
+            </LazyLoad>
         );
     } else {
         return <React.Fragment></React.Fragment>;

@@ -1,10 +1,12 @@
 import React from "react";
+import LazyLoad from 'react-lazy-load';
 import Layout from "../components/layout";
 import { graphql, Link } from "gatsby";
 import Banner from "../components/banner";
 import SEO from "../components/seo";
 import SocialLinks from "../components/sociallinks";
 import Newsletter from "../components/newsletter";
+import PodcastList from "../components/list-podcast";
 import BlogList from "../components/list-blog";
 import Contact from "../components/contact";
 import "../style/wall.less";
@@ -42,7 +44,10 @@ class IndexPage extends React.Component {
                         <SocialLinks />
                     </div>
                 </section>
-                <BlogList isSubsection={true} />
+                <PodcastList />
+                <LazyLoad offsetVertical={500}>
+                    <BlogList />
+                </LazyLoad>
                 <section>
                     <div className="section-title">
                         <h2>CONTACT</h2>

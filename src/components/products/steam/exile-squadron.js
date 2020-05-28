@@ -8,7 +8,7 @@ export default () => {
         query ExileSquadron {
             boxArt: file(relativePath: { eq: "games_boxart/exile-squadron.jpg" }) {
                 childImageSharp {
-                    fluid(maxWidth: 200) {
+                    fluid(maxWidth: 300) {
                         ...GatsbyImageSharpFluid
                     }
                 }

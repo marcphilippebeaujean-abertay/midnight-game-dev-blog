@@ -8,7 +8,7 @@ export default () => {
         query BRS {
             boxArt: file(relativePath: { eq: "games_boxart/blood-rally-show.jpg" }) {
                 childImageSharp {
-                    fluid(maxWidth: 200) {
+                    fluid(maxWidth: 300) {
                         ...GatsbyImageSharpFluid
                     }
                 }

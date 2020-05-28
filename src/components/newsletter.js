@@ -8,8 +8,6 @@ class Newsletter extends React.Component {
     constructor(props) {
         super(props);
 
-        console.log(props);
-
         this.state = {
             submitDisabled: false,
         };

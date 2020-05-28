@@ -5,8 +5,8 @@ import { useStaticQuery, graphql } from "gatsby";
 
 export default () => {
     const data = useStaticQuery(graphql`
-        query Mystiqa {
-            boxArt: file(relativePath: { eq: "games_boxart/mystiqa.jpg" }) {
+        query Socketeer {
+            boxArt: file(relativePath: { eq: "games_boxart/socketeer.jpg" }) {
                 childImageSharp {
                     fluid(maxWidth: 300) {
                         ...GatsbyImageSharpFluid
@@ -16,9 +16,9 @@ export default () => {
         }
     `)
     return (
-        <SteamComponent description={"A procedural open-world action-rpg with a heavy focus on interesting exploration and interactions, challenging combat and epic loot."}
+        <SteamComponent description={"Strategically hack robots to control their combat abilities and use them to advance deeper into each space station stronghold in this charming sci-fi roguelike."}
             boxArt={data.boxArt.childImageSharp.fluid}
-            name={"Mystiqa"}
-            link={"https://store.steampowered.com/app/1265500/Mystiqa/"} target="_blank" rel="noopener noreferrer" />
+            name={"Socketeer"}
+            link={"https://store.steampowered.com/app/750500/Socketeer/"} target="_blank" rel="noopener noreferrer" />
     )
 }

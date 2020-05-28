@@ -8,7 +8,7 @@ export default () => {
         query PuppetMaster {
             boxArt: file(relativePath: { eq: "games_boxart/puppet_master.jpg" }) {
                 childImageSharp {
-                    fluid(maxWidth: 200) {
+                    fluid(maxWidth: 300) {
                         ...GatsbyImageSharpFluid
                     }
                 }

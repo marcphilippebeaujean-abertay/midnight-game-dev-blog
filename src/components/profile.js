@@ -11,7 +11,7 @@ export default ({ name, promoLinks, image, rounded }) => {
     return (
         <div className={`profile`}>
             <div className="image-container-wrapper">
-                <div className="image-container">
+                <div className={`image-container ${rounded ? "rounded" : ""}`}>
                     <Img src={image} alt={name + " profile image."} fluid={image.childImageSharp.fluid} />
                 </div>
             </div>
