@@ -38,6 +38,7 @@ class IndexPage extends React.Component {
                             the <Link to={"/podcast"}>Podcast</Link> or join the
                             <a href="https://discord.gg/DHEgFx" target="_blank" rel="noopener noreferrer"> Discord Community</a>.
                         </p>
+                        <a href="https://www.producthunt.com/posts/moonlight-game-devs?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-moonlight-game-devs" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=204345&theme=light" alt="Moonlight Game Devs - Game Developers share their entrepreneurial Journey! | Product Hunt Embed" style={{ width: "250px", height: "54px", width: "250px", margin: "0 auto", height: "54px" }} /></a>
                         <Newsletter />
                     </div>
                     <div className="social-buttons">
