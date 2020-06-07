@@ -4,7 +4,6 @@
 .items-preview-list{
 	.item{
 		padding: 30px;
-
 		.box{
 			position: relative;
 
@@ -49,19 +48,18 @@
 }
 
 
-@media only screen and (max-width: 800px){
-	.items-preview-list .item{
-		padding: 10px;
+@media only screen and (min-width: 600px){
+	.item {
+		height: 600px;
 	}
 }
 
-@media only screen and (max-width: 995px){
-	/*.items-preview-list {
-		.med-screen-list {
-			display: block !important;
-		}
-		.large-screen-list {
-			display: none !important;
-		}
-	}*/
+@media only screen and (min-width: 800px){
+	.items-preview-list .item{
+		padding: 10px;
+	}
+
+	.item {
+		height: 750px;
+	}
 }

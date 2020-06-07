@@ -45,7 +45,7 @@ class IndexPage extends React.Component {
                     </div>
                 </section>
                 <PodcastList />
-                <LazyLoad offsetVertical={500}>
+                <LazyLoad offsetVertical={1000}>
                     <BlogList />
                 </LazyLoad>
                 <section>
