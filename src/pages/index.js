@@ -1,5 +1,4 @@
 import React from "react";
-import LazyLoad from 'react-lazy-load';
 import Layout from "../components/layout";
 import { graphql, Link } from "gatsby";
 import Banner from "../components/banner";
@@ -45,9 +44,7 @@ class IndexPage extends React.Component {
                     </div>
                 </section>
                 <PodcastList />
-                <LazyLoad offsetVertical={1000}>
-                    <BlogList />
-                </LazyLoad>
+                <BlogList />
                 <section>
                     <div className="section-title">
                         <h2>CONTACT</h2>
