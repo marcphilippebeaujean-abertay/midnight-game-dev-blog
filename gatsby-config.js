@@ -20,10 +20,10 @@ const siteMetadata = {
             name: "HOME",
             url: "/"
         },
-        {
+        /*{
             name: "ABOUT",
             url: "/about"
-        },
+        }*/
         {
             name: "BLOG",
             url: "/blog"
