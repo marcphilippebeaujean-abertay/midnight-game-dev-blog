@@ -10,7 +10,7 @@ export default () => {
         if (localStorage.getItem(cookieKeyPopupHidden) === null) {
             setTimeout(() => {
                 document.getElementById(showPopupWrapper).classList.add(showPopupToggleClass);
-            }, 120000);
+            }, 15000);
         }
     }, []);
 
