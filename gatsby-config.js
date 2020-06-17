@@ -8,8 +8,8 @@ const siteMetadata = {
     titleImage: `/images/logo-banner.png`,
     description: `Where Game Developers share their Stories, Guides and Lessons learned.`,
     author: `Marc Philippe Beaujean`,
-    blogItemsPerPage: 10,
-    podcastEpisodesPerPage: 10,
+    gridItemsPerPage: 10,
+    tableItemsPerPage: 15,
     darkmode: true,
     adSense: {
         client: "ca-pub-9029972083545782",
@@ -20,10 +20,10 @@ const siteMetadata = {
             name: "HOME",
             url: "/"
         },
-        /*{
-            name: "ABOUT",
-            url: "/about"
-        }*/
+        {
+            name: "FREE ASSETS",
+            url: "/free-assets"
+        },
         {
             name: "BLOG",
             url: "/blog"

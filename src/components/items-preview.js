@@ -77,7 +77,7 @@ class ItemPreview extends React.Component {
                                     <span className="icon">
                                         <Tag />
                                     </span>
-                                    <CategoryDisplay categories={this.props.data.node.frontmatter.category} />
+                                    <CategoryDisplay categories={this.props.data.node.frontmatter.category} type={"blog"} />
                                 </p>
                             )
                         }

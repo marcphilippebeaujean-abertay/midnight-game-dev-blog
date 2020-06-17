@@ -9,7 +9,11 @@ export default () => {
     useEffect(() => {
         if (localStorage.getItem(cookieKeyPopupHidden) === null) {
             setTimeout(() => {
-                document.getElementById(showPopupWrapper).classList.add(showPopupToggleClass);
+                const popupElement = document.getElementById(showPopupWrapper);
+                if (!popupElement.classList.contains(showPopupToggleClass) &&
+                    localStorage.getItem(cookieKeyPopupHidden) === null) {
+                    popupElement.classList.add(showPopupToggleClass);
+                }
             }, 15000);
         }
     }, []);

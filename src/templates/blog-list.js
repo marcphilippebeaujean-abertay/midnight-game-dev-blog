@@ -12,7 +12,8 @@ class BlogList extends React.Component {
             return (
                 <section id="blog" className="container">
                     <div className="section-title">
-                        <h1>BLOG</h1>
+                        <header>
+                            <h1>BLOG</h1></header>
                     </div>
                     <BlogItems data={query} />
                     <Pagination
@@ -30,11 +31,6 @@ class BlogList extends React.Component {
 export default function ({ data, pageContext }) {
     let description = `List of Moonlight Game Devs Blog Posts`;
     let title = "Blog Posts"
-    if (pageContext.category !== undefined) {
-        const categoryText = ` for Category ${pageContext.category}`;
-        title += categoryText
-        description += categoryText;
-    }
     return (
         <Layout>
             <SEO lang="en" title={title} description={description} />

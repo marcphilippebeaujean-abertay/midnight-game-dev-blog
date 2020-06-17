@@ -16,9 +16,9 @@ export default function ({ data }) {
             />
             <section className="container">
                 <div className="section-title">
-                    <h1>
+                    <header><h1>
                         {data.mdx.frontmatter.title.toUpperCase()}
-                    </h1>
+                    </h1></header>
                 </div>
                 <article className="post">
                     <div className="content row flex">

@@ -13,12 +13,12 @@ class BlogList extends React.Component {
             return (
                 <section id="blog" className="container">
                     <div className="section-title">
-                        <h1>{"#" + this.props.pageContext.category.toUpperCase()}</h1>
+                        <header><h1>{"#" + this.props.pageContext.category.toUpperCase()}</h1></header>
                     </div>
                     <BlogItems data={query} />
                     <Pagination
                         pageContext={this.props.pageContext}
-                        type="blog"
+                        type={`blog/category/${this.props.pageContext.category}`}
                     />
                 </section>
             );
@@ -29,9 +29,14 @@ class BlogList extends React.Component {
 }
 
 export default function ({ data, pageContext }) {
+    let description = `List of Moonlight Game Devs Blog Posts`;
+    if (pageContext.category !== undefined) {
+        const categoryText = ` for Category ${pageContext.category}`;
+        description += categoryText;
+    }
     return (
         <Layout>
-            <SEO lang="en" title={pageContext.category} />
+            <SEO lang="en" title={pageContext.category} description={description} />
             <BlogList datas={data} pageContext={pageContext} />
         </Layout>
     );

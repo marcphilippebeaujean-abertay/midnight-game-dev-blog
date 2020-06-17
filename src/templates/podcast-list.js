@@ -12,7 +12,7 @@ class PodcastList extends React.Component {
             return (
                 <section id="podcasts" className="container">
                     <div className="section-title">
-                        <h1>PODCAST</h1>
+                        <header><h1>PODCAST</h1></header>
                     </div>
                     <PodcastItems data={query} />
                     <Pagination

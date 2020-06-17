@@ -36,14 +36,14 @@ export default function ({ data, location }) {
                         </div>
                     )}
                     <div className="head text-primary">
-                        <h1>{data.mdx.frontmatter.title}</h1>
+                        <header><h1>{data.mdx.frontmatter.title}</h1></header>
                         <p className="post-date">
                             <Date data={data.mdx.frontmatter.date} />
                         </p>
                     </div>
                     {data.mdx.frontmatter.category != null &&
                         <div className="m-center tags-container">
-                            <Categories categories={data.mdx.frontmatter.category} />
+                            <Categories categories={data.mdx.frontmatter.category} type={"blog"} />
                         </div>
                     }
                     {
