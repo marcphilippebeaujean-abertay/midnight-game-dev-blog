@@ -8,7 +8,7 @@ const siteMetadata = {
     titleImage: `/images/logo-banner.png`,
     description: `Where Game Developers share their Stories, Guides and Lessons learned.`,
     author: `Marc Philippe Beaujean`,
-    gridItemsPerPage: 10,
+    gridItemsPerPage: 12,
     tableItemsPerPage: 15,
     darkmode: true,
     adSense: {

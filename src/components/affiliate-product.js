@@ -18,13 +18,15 @@ export default ({ name, image, link, price }) => {
                         </div>
                     </div>
                 </a>
-                <div className="price-tag">
-                    <p>
-                        <a href={link} target="_blank" rel="noopener noreferrer">
-                            <b>{`${price}$`}</b>
-                        </a>
-                    </p>
-                </div>
+                {
+                    price !== undefined && <div className="price-tag">
+                        <p>
+                            <a href={link} target="_blank" rel="noopener noreferrer">
+                                <b>{`${price}$`}</b>
+                            </a>
+                        </p>
+                    </div>
+                }
             </div>
         </ComponentWrapper>
     )
