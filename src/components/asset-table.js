@@ -35,7 +35,7 @@ const AssetListItem = ({ data }) => (
 
 export default ({ datas }) => {
     const data = datas.allMdx.edges;
-
+    console.log(data);
     let items = [];
     data.forEach(function (e, i) {
         items.push(<AssetListItem key={e.node.id} data={e} />);

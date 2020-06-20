@@ -40,7 +40,7 @@ export default function ({ data, pageContext }) {
 export const query = graphql`
     query assetCategoryListPage($skip: Int!, $limit: Int!, $category: String) {
         allMdx(
-            filter: { frontmatter: { category: { in: [$category] } } }
+            filter: { frontmatter: { category: { in: [$category] } }, fileAbsolutePath: { regex: "/assets/" } }
             sort: { fields: [frontmatter___date], order: DESC }
             limit: $limit
             skip: $skip
