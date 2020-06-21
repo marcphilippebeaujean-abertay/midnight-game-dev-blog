@@ -165,7 +165,13 @@ exports.createPages = ({ graphql, actions }) => {
         const allAssetCategories = Object.keys(countAssetCategories)
 
         allAssetCategories.forEach((cat, i) => {
-            const categorySlug = kebabCase(cat);
+            let catUrl = cat;
+            if (cat.startsWith(3)) {
+                catUrl += "(Models / Animations)"
+            } else if (cat.startsWith(2)) {
+                catUrl += "(Sprites / Textures)";
+            }
+            const categorySlug = kebabCase(catUrl);
             const link = `free-assets/category/${categorySlug.slice(1)}`
             const numPostsForCategory = Math.ceil(countAssetCategories[cat] / assetsPerPage);
 

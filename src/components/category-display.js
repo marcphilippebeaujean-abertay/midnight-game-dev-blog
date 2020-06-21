@@ -9,7 +9,13 @@ export default ({ categories, type }) => {
     const categoryLinks = [];
 
     categories.forEach(cat => {
-        const categorySlug = kebabCase(cat);
+        let catUrl = cat;
+        if (cat.startsWith(3)) {
+            catUrl += "(Models / Animations)"
+        } else if (cat.startsWith(2)) {
+            catUrl += "(Sprites / Textures)";
+        }
+        const categorySlug = kebabCase(catUrl);
         const link = `${type}/category/${categorySlug.slice(1)}`
         categoryLinks.push(<Link className="btn tag" to={link}>{cat}</Link>)
     })
