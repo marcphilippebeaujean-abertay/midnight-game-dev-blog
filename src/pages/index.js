@@ -3,7 +3,6 @@ import Layout from "../components/layout";
 import { graphql, Link } from "gatsby";
 import Banner from "../components/banner";
 import SEO from "../components/seo";
-import SocialLinks from "../components/sociallinks";
 import Newsletter from "../components/newsletter";
 import PodcastList from "../components/list-podcast";
 import BlogList from "../components/list-blog";
@@ -38,9 +37,6 @@ class IndexPage extends React.Component {
                             <a href="https://discord.gg/DHEgFx" target="_blank" rel="noopener noreferrer"> Discord Community</a>.
                         </p>
                         <Newsletter />
-                    </div>
-                    <div className="social-buttons">
-                        <SocialLinks />
                     </div>
                 </section>
                 <PodcastList />

@@ -153,7 +153,7 @@ class Contact extends React.Component {
         return (
             <div id="contact" className="container">
                 <div
-                    className={"row" + (this.showContactForm ? "" : " no-form")}
+                    className={(this.showContactForm ? "" : " no-form")}
                     ref={c => (this.contactArea = c)}
                 >
                     {this.props.contact.description && (
@@ -315,19 +315,6 @@ class Contact extends React.Component {
                             </form>
                         </div>
                     )}
-                    <div
-                        className={
-                            this.showContactForm
-                                ? "col s12 m6 details"
-                                : "col s12 details"
-                        }
-                    >
-                        <ul>
-                            <li className="social-margin">
-                                <SocialLinks />
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         );

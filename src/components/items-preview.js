@@ -5,6 +5,7 @@ import Date from "./date";
 import CommentCount from "./comment-count"
 import { Calendar, Comment, Tag } from "./icons";
 import CategoryDisplay from "./category-display";
+import NewContentIndicator from "./new-content-indicator";
 import "../style/list-items.less";
 
 class ItemPreview extends React.Component {
@@ -23,6 +24,7 @@ class ItemPreview extends React.Component {
             <div className={itemStyle}>
                 <div className="box">
                     <div className="image">
+                        <NewContentIndicator postDate={this.props.data.node.frontmatter.date} />
                         <Img
                             fluid={
                                 this.props.data.node.frontmatter.image

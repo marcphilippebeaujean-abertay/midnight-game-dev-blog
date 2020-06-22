@@ -1,6 +1,7 @@
 import React from "react";
 
 import Categories from "./category-display";
+import NewContentIndicator from "./new-content-indicator";
 import { Tag, Download, User, Construction } from "./icons";
 
 
@@ -13,6 +14,7 @@ const AssetListItem = ({ data }) => (
                         <Download />
                     </span>
                     <b>{data.node.frontmatter.title}</b>
+                    <NewContentIndicator postDate={data.node.frontmatter.date} />
                 </p>
             </a>
         </div>

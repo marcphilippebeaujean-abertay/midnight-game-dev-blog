@@ -50,6 +50,7 @@ export const query = graphql`
                     id
                     frontmatter {
                         title
+                        date
                         description
                         category
                         external_link

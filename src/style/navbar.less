@@ -1,10 +1,51 @@
 @import "theme";
 
+#nav-wrapper {
+    .social-links {
+        ul {
+            list-style: none;
+
+            li {
+                display: inline-block;
+                width: 40px;
+                margin: 5px;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
 nav {
     background: @background;
     position: fixed;
     width: 100%;
     z-index: 99;
+
+    .social-links {
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-end;
+        ul {
+            margin-right: 1em;
+        }
+        li {
+            height: 40px;
+            margin: 0px;
+            a {
+            display: flex;
+            width: 40px;
+            img {
+                align-self: flex-start;
+                position: relative;
+                top: 0px;
+            }
+        }
+        }
+    }
+
     #nav-container {
         display: flex;
         width: 100%;
@@ -177,22 +218,6 @@ nav {
                 }
             }
         }
-
-        .social-links {
-            ul {
-                list-style: none;
-
-                li {
-                    display: inline-block;
-                    width: 40px;
-                    margin: 5px;
-
-                    img {
-                        width: 100%;
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -205,6 +230,9 @@ nav {
         display: block !important;
     }
     nav {
+        .social-links {
+            display: none;
+        }
         .logo {
             width: 200px;
         }

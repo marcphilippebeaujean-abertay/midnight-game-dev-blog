@@ -90,7 +90,7 @@ class Navbar extends React.Component {
     render() {
         const placeholder = this.props.placeholder;
         return (
-            <React.Fragment>
+            <div id="nav-wrapper">
                 <div id="nav-sidebar">
                     <Sidebar
                         sidebar={<SidebarContents />}
@@ -129,6 +129,10 @@ class Navbar extends React.Component {
                         <Link to="/">
                             <Logo />
                         </Link>
+
+                        <div className="social-links">
+                            <SocialLinks />
+                        </div>
                         <NavLinks />
                     </div>
                 </nav>
@@ -140,7 +144,7 @@ class Navbar extends React.Component {
                         }}
                     ></div>
                 )}
-            </React.Fragment>
+            </div>
         );
     }
 }
