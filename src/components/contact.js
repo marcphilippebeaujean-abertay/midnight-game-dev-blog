@@ -2,7 +2,6 @@ import React from "react";
 import { StaticQuery, graphql, Link } from "gatsby";
 import { PaperPlane, Loading } from "./icons";
 import { emailRegex, isValidFormInput, encodeFormData } from "../constants/formUtils";
-import SocialLinks from "./sociallinks";
 import "../style/contact.less";
 
 const minimumMessageLength = 10;

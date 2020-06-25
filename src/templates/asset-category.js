@@ -28,7 +28,7 @@ class AssetList extends React.Component {
 }
 
 export default function ({ data, pageContext }) {
-    let description = `List of Currated ${pageContext.category} Game Assets!`;
+    let description = `List of Curated ${pageContext.category} Game Assets!`;
     return (
         <Layout>
             <SEO lang="en" title={`Free ${pageContext.category} Game Assets`} description={description} />

@@ -8,7 +8,7 @@ import SEO from "../components/seo";
 import Date from "../components/date";
 import Comments from "../components/comments";
 import PodcastLinks from "../components/podcast-links";
-import Profile from "../components/profile";
+import Profile, { MyProfile } from "../components/profile";
 import PodlovePlayer from "../components/podlove-player";
 import Categories from "../components/category-display";
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -67,13 +67,13 @@ export default function ({ data, location }) {
                         </div>
                     </div>
                     {
-                        data.mdx.frontmatter.externals_profile != null && (
+                        data.mdx.frontmatter.externals_profile != null ? (
                             <Profile name={data.mdx.frontmatter.externals_profile.name}
                                 image={data.mdx.frontmatter.externals_profile.image}
                                 promoLinks={data.mdx.frontmatter.externals_profile.links}
                                 description={data.mdx.frontmatter.externals_profile.description}
                                 rounded={data.mdx.frontmatter.externals_profile.rounded} />
-                        )
+                        ) : <MyProfile />
                     }
                 </article>
                 <LazyLoad offsetVertical={300}>

@@ -22,7 +22,7 @@ class AssetList extends React.Component {
                     {
                         this.props.pageContext.isFirstAssetPage && (
                             <div className="asset-listing-description">
-                                <p className="tag-line text-secondary">A currated List of the best free Game Assets!</p>
+                                <p className="tag-line text-secondary">A curated List of the best free Game Assets!</p>
                                 <p className="text-secondary"><span className="icon"><Tag /></span>Categories</p>
                                 <div className="tags-container">
                                     {
