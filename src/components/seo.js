@@ -20,7 +20,7 @@ function SEO({ description, lang, meta, title, image }) {
     );
 
     const metaDescription = description || site.siteMetadata.description;
-    const ogImage = image || site.siteMetadata.logo;
+    const ogImage = image || site.siteMetadata.browserPreviewIcon;
 
     return (
         <Helmet
