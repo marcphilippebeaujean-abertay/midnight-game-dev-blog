@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby";
 export default () => {
     const data = useStaticQuery(graphql`
         query JetIsland {
-            boxArt: file(relativePath: { eq: "games_boxart/jet-island.png" }) {
+            boxArt: file(relativePath: { eq: "games_boxart/jet-island.jpg" }) {
                 childImageSharp {
                     fluid(maxWidth: 300) {
                         ...GatsbyImageSharpFluid
