@@ -49,15 +49,20 @@ export const MyProfile = () => {
                     name: "Twitter"
                 },
                 {
+                    url: "https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA",
+                    icon: "/images/Youtube.svg",
+                    name: "YouTube"
+                },
+                {
                     url: "https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/",
                     icon: "/images/Linkedin.svg",
                     name: "Linkedin"
                 },
                 {
-                    website: "https://byteschool.io/",
+                    url: "https://byteschool.io/",
                     icon: "/images/Website.svg",
                     name: "Website"
-                }
+                },
                 ]}
             rounded={true}
             image={data.myPic} />
