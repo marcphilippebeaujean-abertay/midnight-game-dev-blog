@@ -64,6 +64,11 @@ const siteMetadata = {
             url: "https://discord.gg/rfcYJJB"
         },
         {
+            name: "Facebook",
+            icon: "/images/Facebook.svg",
+            url: "https://www.facebook.com/Moonlight-Game-Devs-117297853384521"
+        },
+        {
             name: "Reddit",
             icon: "/images/Reddit.svg",
             url: "https://www.reddit.com/r/MoonlightGameDevs"

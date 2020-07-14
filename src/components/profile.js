@@ -59,6 +59,11 @@ export const MyProfile = () => {
                     name: "Linkedin"
                 },
                 {
+                    url: "https://www.instagram.com/mpbeauj/",
+                    icon: "/images/Instagram.svg",
+                    name: "Instagram"
+                },
+                {
                     url: "https://byteschool.io/",
                     icon: "/images/Website.svg",
                     name: "Website"

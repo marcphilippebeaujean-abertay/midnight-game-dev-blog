@@ -18,7 +18,7 @@ class AssetList extends React.Component {
             return (
                 <section id="assets" className="container">
                     <div className="section-title">
-                        <header><h1>FREE ASSETS</h1></header>
+                        <header><h1>FREE GAME ASSETS</h1></header>
                     </div>
                     {
                         this.props.pageContext.isFirstAssetPage && (
@@ -59,7 +59,7 @@ class AssetList extends React.Component {
 
 export default function ({ data, pageContext }) {
     let description = `Currated List of free Game Assets`;
-    let title = "Free Assets"
+    let title = "Free Game Assets"
     if (pageContext.category !== undefined) {
         description = `Currated List of free ${pageContext.category} Game Assets`;
         title = "Free " + pageContext.category + " Assets";
