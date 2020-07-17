@@ -64,6 +64,11 @@ const siteMetadata = {
             url: "https://discord.gg/rfcYJJB"
         },
         {
+            name: "Instagram",
+            icon: "/images/Instagram.svg",
+            url: "https://www.instagram.com/moonlightgamedev/"
+        },
+        {
             name: "Facebook",
             icon: "/images/Facebook.svg",
             url: "https://www.facebook.com/Moonlight-Game-Devs-117297853384521"
@@ -103,6 +108,13 @@ const plugins = [
                 },
                 {
                     resolve: `gatsby-remark-lazy-load`,
+                },
+                {
+                    resolve: "gatsby-remark-external-links",
+                    options: {
+                        target: "_blank",
+                        rel: "noopener noreferrer"
+                    }
                 }
             ],
             plugins: [`gatsby-remark-images`],

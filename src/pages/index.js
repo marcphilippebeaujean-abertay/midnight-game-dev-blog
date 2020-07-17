@@ -58,7 +58,7 @@ export const query = graphql`
     query {
         logoBanner: file(relativePath: { eq: "logo-banner.png" }) {
             childImageSharp {
-                fluid(maxWidth: 900) {
+                fluid(maxWidth: 600) {
                     ...GatsbyImageSharpFluid
                 }
             }
