@@ -10,7 +10,7 @@ class AssetList extends React.Component {
     render() {
         const query = this.props.datas;
         let title = this.props.pageContext.category.toLowerCase().includes("game") ?
-            `Free ${this.props.pageContext.category} Assets` : `Free ${this.props.pageContext.category} Game Assets`;
+            `The Best Free ${this.props.pageContext.category} Assets` : `The Best Free ${this.props.pageContext.category} Game Assets`;
         if (query.allMdx.edges.length > 0) {
             return (
                 <section id="assets" className="container">
@@ -33,9 +33,9 @@ class AssetList extends React.Component {
 
 export default function ({ data, pageContext }) {
     let description = pageContext.category.toLowerCase().includes("game") ?
-        `List of Curated ${pageContext.category} Assets!` : `List of Curated ${pageContext.category} Game Assets!`;
+        `Curated List Of Free ${pageContext.category} Assets!` : `Curated List Of Free ${pageContext.category} Game Assets!`;
     let title = pageContext.category.toLowerCase().includes("game") ?
-        `Free ${pageContext.category} Assets!` : `Free ${pageContext.category} Game Assets!`;
+        `The Best Free ${pageContext.category} Assets!` : `The Best Free ${pageContext.category} Game Assets!`;
     return (
         <Layout>
             <SEO lang="en" title={title} description={description} />

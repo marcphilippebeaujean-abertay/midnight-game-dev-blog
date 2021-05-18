@@ -18,7 +18,7 @@ class AssetList extends React.Component {
             return (
                 <section id="assets" className="container">
                     <div className="section-title">
-                        <header><h1>FREE GAME ASSETS</h1></header>
+                        <header><h1>THE BEST FREE GAME ASSETS</h1></header>
                     </div>
                     {
                         this.props.pageContext.isFirstAssetPage && (
